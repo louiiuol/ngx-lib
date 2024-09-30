@@ -28,4 +28,4 @@ jobs:
       run: npx angular-cli-ghpages --dir=dist/ngx-lib
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-Ò
+
