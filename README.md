@@ -12,10 +12,9 @@
 
 | Dependency | version | Description |
 |:-----------|:----------:|:-----------|
-| [@angular/core](https://angular.io/guide/what-is-angular) | ^14.2.7 | application-design framework and development platform for creating efficient and sophisticated single-page apps |
-| [@angular/material](https://material.angular.io/) | ^14.2.6 | Material Design components for Angular |
-| [typescript](https://www.typescriptlang.org/) | ~4.8.4 | strongly typed programming language that builds on JavaScript |
-| [cerializr](https://github.com/kmathy/cerializr) | ^3.1.4 | Easy serialization through ES7/Typescript annotations |
+| [@angular/core](https://angular.io/guide/what-is-angular) | `^18.2.0` | application-design framework and development platform for creating efficient and sophisticated single-page apps |
+| [@angular/material](https://material.angular.io/) | `^18.2.0` | Material Design components for Angular |
+| [typescript](https://www.typescriptlang.org/) | `~5.5.2` | strongly typed programming language that builds on JavaScript |
 
 ### Overview 👀
 
