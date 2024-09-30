@@ -50,6 +50,7 @@
                   "maximumError": "4kB"
                 }
               ],
+              "baseHref": "/ngx-lib/",
               "outputHashing": "all"
             },
             "development": {
