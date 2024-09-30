@@ -25,7 +25,8 @@ jobs:
       run: npm run build --configuration=production --base-href='https://louiiuol.github.io/ngx-lib/'
 
     - name: Deploy to GitHub Pages
-      run: npx angular-cli-ghpages --dir=dist/ngx-lib/browser
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: ./dist/ngx-lib/
+          token: ${{ secrets.GH_TOKEN }}
