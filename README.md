@@ -1,27 +1,28 @@
-# NgxLib
+# Angular Web User Interface 🎨
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
+> Neat and effective library of angular components based on material design, helping
+> developers displaying data, requesting APIs, submitting data via forms and build layout..
 
-## Development server
+## Description 📜
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+> Web UI offers simple yet effective components to build applications. Just like any other framework, it contains
+> components made with SCSS and, if necessary, uses TypeScript functions to create UX needed.
 
-## Code scaffolding
+## Built with ⚙️
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Dependency | version | Description |
+|:-----------|:----------:|:-----------|
+| [@angular/core](https://angular.io/guide/what-is-angular) | ^14.2.7 | application-design framework and development platform for creating efficient and sophisticated single-page apps |
+| [@angular/material](https://material.angular.io/) | ^14.2.6 | Material Design components for Angular |
+| [typescript](https://www.typescriptlang.org/) | ~4.8.4 | strongly typed programming language that builds on JavaScript |
+| [cerializr](https://github.com/kmathy/cerializr) | ^3.1.4 | Easy serialization through ES7/Typescript annotations |
 
-## Build
+### Overview 👀
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+> This library provides different types of components that can be used in different scenarios:
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+| Modules             | description             |
+|:--------------------|:------------------------|
+| Layout              | Component to build skeletons |
+| Styles              | Css stylesheets to override theme |
+| DataList/DataTable  | Generic sortable & filterable lst element |
