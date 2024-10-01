@@ -1,0 +1,7 @@
+.angular/
+.git/
+.gitub/
+.dist/
+.vscode/
+node_modules/
+public/
