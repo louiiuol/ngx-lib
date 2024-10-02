@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
     "ngxlib"
-  ]
+  ],
+  "css.customData": ["./tailwind.directives.json"]
 }
