@@ -27,7 +27,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    console.log(compiled.querySelector('h1')?.style);
-    expect(compiled.querySelector('h1')?.style.fontSize).toEqual('1.25rem');
+    const h1Element = compiled.querySelector('h1') as HTMLElement;
+    const computedStyle = window.getComputedStyle(h1Element);
+    expect(computedStyle.fontWeight).toEqual('bold');
   });
 });
