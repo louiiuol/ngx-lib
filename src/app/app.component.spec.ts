@@ -14,18 +14,20 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'ngx-lib' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ngx-lib');
-  });
-
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Hello, ngx-lib',
+      'Greetings, friend.',
     );
+  });
+
+  it('should render w/ tailwind', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    console.log(compiled.querySelector('h1')?.style);
+    expect(compiled.querySelector('h1')?.style.fontSize).toEqual('1.25rem');
   });
 });
