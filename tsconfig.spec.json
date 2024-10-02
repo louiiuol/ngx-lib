@@ -4,7 +4,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": ["jasmine"]
+    "types": ["jest"],
+    "esModuleInterop": true, // Avoids annoying warnings [check TS option](https://www.typescriptlang.org/tsconfig#esModuleInterop)
+    "emitDecoratorMetadata": true // Make Angular's dependency injection work with jest
   },
   "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }
