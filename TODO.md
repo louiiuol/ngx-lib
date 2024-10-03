@@ -1,24 +1,18 @@
 # TODO
 
-> Tasks on development scope
+> Tasks on development scope (more tasks can be found in this repository using TODO Tree -vscode extensions)
 
 ## Init application 🎉
-
-### Architecture
-
-- [x] Generate angular app & link to github repository
-- [x] Set eslint/prettier configuration & workspace plugins
-- [x] Add deployment CI on github pages (available [here](https://louiiuol.github.io/ngx-lib/))
-- [ ] Configure tailwind
 
 ### Core
 
 #### modules
 
-- [ ] Platform
-- [ ] Notification
-- [ ] Http request
 - [ ] Storage
+- [ ] Notification
+- [ ] Platform
+- [ ] Dialog
+- [ ] Http request
 
 #### directives
 
