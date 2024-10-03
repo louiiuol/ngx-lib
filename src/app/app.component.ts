@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'lib-root',
   standalone: true,
+  template: `
+    <main class="bg-gray-100 p-4">
+      <h1 class="text-xl font-semibold">Greetings, friend.</h1>
+      <router-outlet />
+    </main>
+  `,
   imports: [RouterOutlet],
-  template: ` <h1 class="text-xl font-semibold">Greetings, friend.</h1> `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {}

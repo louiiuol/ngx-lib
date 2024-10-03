@@ -2,5 +2,13 @@
   "cSpell.words": [
     "ngxlib"
   ],
-  "css.customData": ["./tailwind.directives.json"]
+  "css.customData": ["./tailwind.directives.json"],
+  "eslint.validate": ["javascript", "typescript"],
+  "eslint.workingDirectories": [
+    {
+      "changeProcessCWD": true,
+      "directory": "./"
+    }
+  ],
+  "eslint.useFlatConfig": false,
 }
