@@ -7,7 +7,7 @@
 ## Built with 🏗️
 
 | Dependency | version |
-|:-----------|:----------:|
+|:-----------|:----------|
 | [@angular/core](https://angular.io/guide/what-is-angular) | `^18.2.0` |
 | [eslint](https://eslint.org/docs/latest/) | `8.57.0` |
 | [jest](https://jestjs.io/fr/docs/getting-started) | `^29.7.0` |
@@ -22,7 +22,7 @@
 > This project contains multiple scripts. Remember to first run `npm i` in order to load required dependencies. Then you can run any of the scripts below:
 
 | Script | Description |
-|:-----------|:----------:|
+|:-----------|:----------|
 | `npm run start` | Serves application locally to <https://localhost:4200> |
 | `npm run build` | Builds application in production mode to `dist/ngx-lib/browser` |
 | `npm run watch` | Builds application in development mode and watch for file change |
