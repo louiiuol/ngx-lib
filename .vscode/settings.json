@@ -18,6 +18,12 @@
     ".git/": true,
     ".angular/": true,
     "package-lock.json": true,
+    "tailwind.directives.json": true,
+    "tsconfig.app.json": true,
+    "tsconfig.spec.json": true,
+    "jest.setup.ts": true,
+    ".editorconfig": true,
+    "dist/": true,
   },
   "files.watcherExclude": {
     "**/dist": true,
