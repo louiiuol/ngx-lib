@@ -24,6 +24,12 @@
     "jest.setup.ts": true,
     ".editorconfig": true,
     "dist/": true,
+    ".eslintrc.json": true,
+    ".gitignore": true,
+    ".prettierignore": true,
+    "jest.config.ts": true,
+    "tsconfig.json": true,
+    ".github/": true,
   },
   "files.watcherExclude": {
     "**/dist": true,
