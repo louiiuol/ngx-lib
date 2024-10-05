@@ -1,19 +1,4 @@
 {
-  "TS -> Inject Service": {
-		"scope": "typescript",
-		"description": "Constructor Injection Pattern",
-		"prefix": "@inject",
-		"body": "@$1 private readonly _$2: ${1},$0"
-	},
-	"TS -> Event & Emitter": {
-		"scope": "typescript",
-		"prefix": "emitter",
-		"description": "Add emitter and event properties",
-		"body": [
-			"private readonly _onDid$1 = new Emitter<$2>();",
-			"readonly onDid$1: Event<$2> = this._onDid$1.event;"
-		],
-  },
   "Angular -> Component": {
     "scope": "typescript",
     "prefix": "ngComponent",
@@ -27,7 +12,7 @@
         "* @author ${4:author}",
         "*/",
         "@Component({",
-        "  selector: '${1:name}',",
+        "  selector: 'lib-${1:name}',",
         "  host: { class: '' },",
         "  standalone: true,",
         "  template: ``,",
@@ -50,9 +35,9 @@
         "* @author ${4:author}",
         "*/",
         "@Directive({",
-        "  selector: '[${1:name}]',",
+        "  selector: '[lib${1:name}]',",
         "})",
-        "export class ${2:name} {}",
+        "export class ${2:name} {${5}}",
       ]
   },
   "Angular -> Pipe": {
@@ -60,18 +45,20 @@
     "prefix": "ngPipe",
     "description": "Angular Standalone Pipe",
     "body": [
-        "import { Pipe, PipeTransform } from '@angular/core';",
+        "import type { PipeTransform } from '@angular/core';",
+        "import { Pipe } from '@angular/core';",
         "",
         "/**",
-        "* ${3:description}",
+        "* ${6:description}",
         "*",
-        "* @author ${4:author}",
+        "* @author ${7:author}",
         "*/",
         "@Pipe({",
-        "  name: '${1:name}',",
+        "  name: '${1:selector}',",
+        "  pure: ${8:true},",
         "})",
         "export class ${2:name} implements PipeTransform {",
-        "  transform(value: any, ...args: any[]): any {",
+        "  transform(value: ${3:valueType}, ...args: ${4:argsType}[]): ${5:returnType} {",
         "    return value;",
         "  }",
         "}",
@@ -85,14 +72,12 @@
         "import { Injectable } from '@angular/core';",
         "",
         "/**",
-        "* ${3:description}",
+        "* ${2:description}",
         "*",
-        "* @author ${4:author}",
+        "* @author ${3:author}",
         "*/",
-        "@Injectable({",
-        "  providedIn: 'root',",
-        "})",
-        "export class ${2:name} {}",
+        "@Injectable()",
+        "export class ${1:name} {}",
       ]
   },
 }
