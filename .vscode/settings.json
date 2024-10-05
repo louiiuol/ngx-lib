@@ -11,4 +11,26 @@
     }
   ],
   "eslint.useFlatConfig": false,
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.DS_Store": true,
+    "coverage": true,
+    ".git/": true,
+    ".angular/": true,
+    "package-lock.json": true,
+  },
+  "files.watcherExclude": {
+    "**/dist": true,
+    "**/node_modules/*/**": true,
+    ".git/": true,
+    ".angular/": true,
+  },
+  "search.exclude": {
+    "**/dist": true,
+    "**/node_modules": true,
+    ".git/": true,
+    ".angular/": true,
+    "**/*.d.ts": true,
+    "**/*.d.ts.map": true
+  },
 }
