@@ -1,23 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
+import activatedRouteMock from '@mocks/activated-route.mock';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
-      providers: [
-        {
-          provide: ActivatedRoute,
-          useValue: {
-            snapshot: {
-              paramMap: {
-                get: () => null,
-              },
-            },
-          },
-        },
-      ],
+      providers: [activatedRouteMock],
     }).compileComponents();
   });
 
@@ -33,8 +22,8 @@ describe('AppComponent', () => {
     const mainElement = document.querySelector('main');
     if (mainElement) {
       const computedStyle = window.getComputedStyle(mainElement);
-      // TODO: FIX -> wrong display value
-      expect(computedStyle.display).toEqual('block');
+
+      expect(computedStyle.display).toEqual('flex');
     }
   });
 });

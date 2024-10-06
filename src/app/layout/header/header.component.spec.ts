@@ -1,23 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
+import activatedRouteMock from '@mocks/activated-route.mock';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HeaderComponent],
-      providers: [
-        {
-          provide: ActivatedRoute,
-          useValue: {
-            snapshot: {
-              paramMap: {
-                get: () => null,
-              },
-            },
-          },
-        },
-      ],
+      providers: [activatedRouteMock],
     }).compileComponents();
   });
 
