@@ -8,7 +8,7 @@
 
 #### modules
 
-- [ ] Storage
+- [x] Storage
 - [ ] Notification
 - [ ] Platform
 - [ ] Dialog
@@ -34,3 +34,10 @@
 - [ ] Trust Html
 - [ ] Trust URL
 - [ ] Since
+
+### UI
+
+- [ ] NotFoundPage
+- [ ] ComponentsPage
+- [ ] ServicesPage
+- [ ] ModulesPage
