@@ -7,21 +7,8 @@ import {
 } from '@angular/core';
 
 import type { NotificationSeverity } from 'src/app/types/notification-severity.type';
-import { IconComponent } from '../icon/icon.component';
-
-const MESSAGE_DICTIONARY = {
-  info: { icon: 'info', color: 'bg-blue-100 border-blue-500 text-blue-900' },
-  note: {
-    icon: 'lightbulb',
-    color: 'bg-indigo-100 border-indigo-500 text-indigo-900',
-  },
-  warn: {
-    icon: 'warning',
-    color: 'bg-orange-100 border-orange-500 text-orange-900',
-  },
-  error: { icon: 'error', color: 'bg-red-100 border-red-500 text-red-900' },
-  success: { icon: 'done', color: 'bg-teal-100 border-teal-500 text-teal-900' },
-} as const;
+import { IconComponent } from '../../atoms/icon/icon.component';
+import { MESSAGE_DICTIONARY } from './dictionary.constant';
 
 /**
  * Simple component to display inline container with colored messages depending on given

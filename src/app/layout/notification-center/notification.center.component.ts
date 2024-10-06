@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { MessageComponent } from 'src/app/components/atoms/message/message.component';
+import { MessageComponent } from 'src/app/components/molecules/message/message.component';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 
 /**
