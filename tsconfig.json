@@ -18,6 +18,7 @@
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
+    "resolveJsonModule": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ESNext",

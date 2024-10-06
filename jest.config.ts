@@ -196,7 +196,6 @@ const config: Config = {
   // watchman: true,
 
   preset: 'jest-preset-angular',
-  setupFilesAfterEnv: ['./jest.setup.ts'],
 };
 
 export default config;
