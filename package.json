@@ -5,7 +5,7 @@
     "start": "ng serve",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test --sourceMap=false --browsers=ChromeHeadless --watch=false",
+    "test": "ng test --browsers=ChromeHeadless --watch=false",
     "test:watch": "ng test --watch",
     "lint": "ng lint"
   },
