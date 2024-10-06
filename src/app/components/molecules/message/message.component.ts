@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -19,33 +18,23 @@ import { MESSAGE_DICTIONARY } from './dictionary.constant';
 @Component({
   selector: 'lib-message',
   standalone: true,
-  imports: [NgIf, IconComponent],
+  host: {
+    class:
+      'flex items-center justify-between gap-3 border-l-4 rounded-r px-4 py-2 shadow-md',
+    '[class]': 'messageColor() ',
+  },
   template: `
-    <div
-      class="flex items-center justify-between gap-3 border-l-4 rounded-r px-4 shadow-md"
-      [class]="messageColor()"
-    >
-      <div class="flex-1 flex items-start justify-start py-2">
-        @if (showIcon()) {
-          <lib-icon
-            *ngIf="showIcon"
-            [name]="messageIcon()"
-            class="my-1 !mx-0"
-          />
-        }
-        <div class="p-1">
-          <span
-            [class]="{ 'font-bold': !!details }"
-            [innerHTML]="summary()"
-          ></span>
-          <br />
-          @if (details(); as details) {
-            <span class="text-sm" [innerHTML]="details"></span>
-          }
-        </div>
-      </div>
+    @if (showIcon()) {
+      <lib-icon [name]="messageIcon()" class="my-1 !mx-0" />
+    }
+    <div class="p-1 flex flex-col">
+      <span [class]="{ 'font-bold': !!details }" [innerHTML]="summary()"></span>
+      @if (details(); as details) {
+        <span class="text-sm" [innerHTML]="details"></span>
+      }
     </div>
   `,
+  imports: [IconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MessageComponent {
@@ -62,10 +51,13 @@ export class MessageComponent {
   showIcon = input<boolean>(true);
 
   messageIcon = computed(() => {
-    return this.severity() ? MESSAGE_DICTIONARY[this.severity()].icon : 'info';
+    return MESSAGE_DICTIONARY[this.severity()].icon ?? 'info';
   });
 
   messageColor = computed(() => {
-    return this.severity() ? MESSAGE_DICTIONARY[this.severity()].color : '';
+    return (
+      MESSAGE_DICTIONARY[this.severity()].color ??
+      MESSAGE_DICTIONARY['info'].color
+    );
   });
 }

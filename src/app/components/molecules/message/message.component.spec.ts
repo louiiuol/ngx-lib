@@ -35,7 +35,7 @@ describe('MessageComponent', () => {
     fixture.detectChanges();
 
     const icon = fixture.debugElement.query(By.css('lib-icon'));
-    const container = fixture.debugElement.query(By.css('div'));
+    const container = fixture.debugElement;
 
     expect(icon.componentInstance.name()).toBe('info');
     expect(container.nativeElement.classList).toContain('bg-blue-100');
@@ -49,7 +49,7 @@ describe('MessageComponent', () => {
     fixture.detectChanges();
 
     const icon = fixture.debugElement.query(By.css('lib-icon'));
-    const container = fixture.debugElement.query(By.css('div'));
+    const container = fixture.debugElement;
 
     expect(icon.componentInstance.name()).toBe('error');
     expect(container.nativeElement.classList).toContain('bg-red-100');
