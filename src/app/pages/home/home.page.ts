@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { IconComponent } from 'src/app/components/atoms/icon/icon.component';
 
 /**
  * Introduction page for the library
@@ -19,9 +20,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       friend.
     </h1>
     <p class="text-2xl text-accent-300">Let's start building some UI 🎨</p>
-    <img class="mx-auto w-40" src="/logo.svg" alt="Website logo" />
+    <lib-icon svg="logo" alt="Website logo" size="150px" />
   `,
-  imports: [],
+  imports: [IconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePage {}
