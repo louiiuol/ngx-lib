@@ -1,7 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './layout/header.component';
+import { HeaderComponent } from './layout/header/header.component';
 
+/**
+ * Root component of the application. Defines layout and routing.
+ *
+ * @author louiiuol
+ */
 @Component({
   selector: 'lib-root',
   standalone: true,
