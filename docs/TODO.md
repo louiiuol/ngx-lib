@@ -8,8 +8,6 @@
 
 #### modules
 
-- [x] Storage
-- [ ] Notification
 - [ ] Platform
 - [ ] Dialog
 - [ ] Http request

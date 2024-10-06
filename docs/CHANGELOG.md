@@ -18,5 +18,11 @@
 
 - [x] Icon component to render either google or custom icon
 - [x] Message component to display information with severity (info, warn, error ..)
+- [x] Notification center (display notification in the root component)
+
+### Core
+
+- [x] LocalStorageService
+- [x] NotificationService
 
 > Still in progress !
