@@ -23,7 +23,8 @@
       "rules": {
         "@angular-eslint/template/prefer-control-flow": ["error"],
         "@angular-eslint/template/prefer-self-closing-tags": ["error"],
-        "@angular-eslint/template/attributes-order": ["error"]
+        "@angular-eslint/template/attributes-order": ["error"],
+        "@angular-eslint/no-empty-lifecycle-method": ["warn"]
       }
     }
   ],
@@ -50,10 +51,11 @@
         "suffixes": ["Component", "Page", "Dialog"]
       }
     ],
-    "@angular-eslint/prefer-on-push-component-change-detection": ["error"],
+    "@angular-eslint/prefer-on-push-component-change-detection": ["warn"],
     "@angular-eslint/no-attribute-decorator": ["error"],
     "@typescript-eslint/ban-ts-comment": "warn",
     "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/no-unnecessary-condition": "warn",
     "@typescript-eslint/consistent-type-assertions": [
       "error",
       {
