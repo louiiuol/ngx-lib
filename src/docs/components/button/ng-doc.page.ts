@@ -1,6 +1,6 @@
 import type { NgDocPage } from '@ng-doc/core';
 import { ButtonComponent } from 'src/app/components/atoms/button/button.component';
-import ComponentsCategory from 'src/app/docs/components/ng-doc.category';
+import ComponentsCategory from 'src/docs/components/ng-doc.category';
 
 const Button: NgDocPage = {
   title: `Button`,
