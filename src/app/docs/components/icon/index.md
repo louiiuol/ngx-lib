@@ -2,8 +2,6 @@
 keyword: IconPage
 ---
 
-# IconComponent
-
 Simple component to display an icon as SVG tag from an svg file located in  your `assets/icons` folder.
 
 ## Pre requirements
@@ -29,8 +27,8 @@ You can now start importing this component in your application !
 
 > By following these guidelines, you can effectively use the `lib-icon` component in your Angular application.
 
-## Playground
+## Playground 🕹️
 
-{{ NgDocActions.playground("ButtonPlayground") }}
+{{ NgDocActions.playground("IconPlayground") }}
 
 <div id="end"></div>

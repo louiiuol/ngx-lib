@@ -32,7 +32,9 @@
     "tsconfig.app.json": true,
     "tsconfig.spec.json": true,
     "tsconfig.json": true,
-    "ng-doc": true,
+    ".markdownlint.jsonc": true,
+    "coverage": true,
+    "ng-doc": true
   },
   "files.watcherExclude": {
     "**/dist": true,

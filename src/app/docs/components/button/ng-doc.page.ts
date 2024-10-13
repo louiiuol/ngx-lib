@@ -1,17 +1,17 @@
 import type { NgDocPage } from '@ng-doc/core';
 import { ButtonComponent } from 'src/app/components/atoms/button/button.component';
-import { ButtonDemoComponent } from './demos/button-demo.component';
+import ComponentsCategory from 'src/app/docs/components/ng-doc.category';
 
 const Button: NgDocPage = {
   title: `Button`,
   mdFile: './index.md',
-  demos: { ButtonDemoComponent },
   playgrounds: {
     ButtonPlayground: {
       target: ButtonComponent,
       template: `<ng-doc-selector>My Button</ng-doc-selector>`,
     },
   },
+  category: ComponentsCategory,
 };
 
 export default Button;

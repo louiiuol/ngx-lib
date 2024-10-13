@@ -1,5 +1,3 @@
-# IconMaterialComponent
-
 Simple component to display an icon from material-symbols-outlined font.
 
 * Refer to the material-symbols-outlined font for the list of available icons.
@@ -38,17 +36,8 @@ Simply add this selector to your `style.scss` file. Adapt this settings to match
 
 You can now start importing this component in your application !
 
-## Usage
+## Playground 🕹️
 
-Here is a snippet to demonstrate how you can use this component.
+{{ NgDocActions.playground("IconMaterialPlayground") }}
 
-```html
-<lib-icon-material name='home' />
-```
-
-### Inputs
-
-| Input | Description | Required | Default value |
-|:---------|:--------------------------|:---:|:---|
-|`name`| Name of the material icon * (check <https://fonts.google.com/icons> for the list of available icons) | ✔️ | |
-|`size`| Size of the icon (must include css unit)| ╳ | `1.5rem` |
+<div id="end"></div>

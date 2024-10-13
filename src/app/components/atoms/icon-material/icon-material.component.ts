@@ -20,9 +20,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 })
 export class IconMaterialComponent {
   /**
-   * Name of the material icon
-   * (check https://fonts.google.com/icons for the list of available icons)
-   * */
+   * Name of the material icon (check google material icon website for the list of available icons)
+   */
   name = input.required<string>();
 
   /**

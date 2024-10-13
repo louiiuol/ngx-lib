@@ -1,6 +1,6 @@
 > A button is an interface element that allows the user to perform a specific action when clicked.
 
-## Playground
+## Playground 🕹️
 
 {{ NgDocActions.playground("ButtonPlayground") }}
 
