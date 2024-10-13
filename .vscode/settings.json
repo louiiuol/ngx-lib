@@ -1,6 +1,7 @@
 {
   "cSpell.words": [
-    "ngxlib"
+    "ngxlib",
+    "onboarded"
   ],
   "css.customData": ["./tailwind.directives.json"],
   "eslint.validate": ["javascript", "typescript"],
