@@ -1,6 +1,6 @@
 # Angular Web User Interface 🎨
 
-[![Deploy status](https://github.com/louiiuol/ngx-lib/actions/workflows/deploy.yml/badge.svg)](https://github.com/louiiuol/ngx-lib/actions/workflows/deploy.yml)
+[![pages-build-deployment](https://github.com/louiiuol/ngx-lib/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/louiiuol/ngx-lib/actions/workflows/pages/pages-build-deployment)
 
 > Angular library of components, services & patterns easing development of user interfaces. This is not a framework, nor a cdk, nut simply a collection of components following best practices in angular web development.
 >
