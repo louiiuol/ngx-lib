@@ -49,7 +49,7 @@ export class MessageComponent {
   /** Secondary message, provide more context (can be omitted)
    * @default undefined
    */
-  details = input<string>('');
+  details = input<string>();
 
   /** Whether to display an icon before the message
    * @default true

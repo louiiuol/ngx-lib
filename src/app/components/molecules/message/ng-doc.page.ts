@@ -1,6 +1,6 @@
 import type { NgDocPage } from '@ng-doc/core';
 import { MessageComponent } from 'src/app/components/molecules/message/message.component';
-import ComponentsCategory from 'src/docs/components/ng-doc.category';
+import ComponentsCategory from 'src/app/components/ng-doc.category';
 
 const Message: NgDocPage = {
   title: `Message`,

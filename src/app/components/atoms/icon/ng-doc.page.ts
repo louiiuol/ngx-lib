@@ -1,6 +1,6 @@
 import type { NgDocPage } from '@ng-doc/core';
 import { IconComponent } from 'src/app/components/atoms/icon/icon.component';
-import ComponentsCategory from 'src/docs/components/ng-doc.category';
+import ComponentsCategory from 'src/app/components/ng-doc.category';
 
 const IconPage: NgDocPage = {
   title: `Icon`,
