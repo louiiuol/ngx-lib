@@ -1,3 +1,7 @@
+---
+keyword: IconPage
+---
+
 # IconComponent
 
 Simple component to display an icon as SVG tag from an svg file located in  your `assets/icons` folder.
@@ -20,23 +24,13 @@ This service helps working with files in general but this component requires get
 
 You can now start importing this component in your application !
 
-## Usage
-
-Here is a snippet to demonstrate how you can use this component.
-
-```html
-<lib-icon name='home' />
-```
-
-### Inputs
-
-| Input | Description | Required | Default value |
-|:---------|:--------------------------|:---:|:---|
-|`name`| Name of the material icon * (check <https://fonts.google.com/icons> for the list of available icons) | ✔️ | |
-|`size`| Size of the icon (must include css unit)| ╳ | `1.5rem` |
-|`color`| Color of the icon (accepts any valid CSS color value) | ╳ | `currentColor` |
-
 - Ensure that the SVG files in the `assets/icons` folder are properly named and formatted.
 - The `name` input should match the file name of the SVG without the `.svg` extension.
 
 > By following these guidelines, you can effectively use the `lib-icon` component in your Angular application.
+
+## Playground
+
+{{ NgDocActions.playground("ButtonPlayground") }}
+
+<div id="end"></div>
