@@ -1,55 +1,47 @@
 import type { ComponentFixture } from '@angular/core/testing';
 import { TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { of } from 'rxjs';
+import { FileService } from 'src/app/services/file/file.service';
 import { IconComponent } from './icon.component';
 
 describe('IconComponent', () => {
   let component: IconComponent;
   let fixture: ComponentFixture<IconComponent>;
+  let fileService: jasmine.SpyObj<FileService>;
 
   beforeEach(async () => {
+    const fileServiceSpy = jasmine.createSpyObj('FileService', ['getSVG']);
+
     await TestBed.configureTestingModule({
       imports: [IconComponent],
+      providers: [{ provide: FileService, useValue: fileServiceSpy }],
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(IconComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    fileService = TestBed.inject(FileService) as jasmine.SpyObj<FileService>;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  // TODO - Add test: should display the icon name when name is provided
-
-  it('should display an SVG image when svg is provided', () => {
-    fixture.componentRef.setInput('svg', 'logo');
-    fixture.detectChanges();
-    const imgElement = fixture.debugElement.query(By.css('img'));
-    expect(imgElement).toBeTruthy();
-    expect(imgElement.nativeElement.src).toContain('icons/logo.svg');
-    expect(imgElement.nativeElement.style.width).toBe('1.5rem');
-    expect(imgElement.nativeElement.style.height).toBe('1.5rem');
-    expect(imgElement.nativeElement.alt).toBe('icon');
+  it('should set default values for inputs', () => {
+    expect(component.alt()).toBe('icon');
+    expect(component.size()).toBe('1.5rem');
+    expect(component.aspectRatio()).toBe('1 / 1');
+    expect(component.color()).toBe('currentColor');
   });
 
-  it('should apply the correct size to the SVG image', () => {
-    fixture.componentRef.setInput('svg', 'logo');
-    fixture.componentRef.setInput('size', '2rem');
-    fixture.detectChanges();
-    const imgElement = fixture.debugElement.query(By.css('img'));
-    expect(imgElement.nativeElement.style.width).toBe('2rem');
-    expect(imgElement.nativeElement.style.height).toBe('2rem');
-  });
+  it('should call fileService.getSVG with the correct path', () => {
+    const svgContent = '<svg></svg>';
+    fileService.getSVG.and.returnValue(
+      of(svgContent as unknown as SVGSVGElement),
+    );
+    fixture.componentRef.setInput('name', 'test-icon');
 
-  it('should apply the correct alt text to the SVG image', () => {
-    fixture.componentRef.setInput('svg', 'logo');
-    fixture.componentRef.setInput('alt', 'logo icon');
     fixture.detectChanges();
-    const imgElement = fixture.debugElement.query(By.css('img'));
-    expect(imgElement.nativeElement.alt).toBe('logo icon');
+
+    expect(fileService.getSVG).toHaveBeenCalledWith('/icons/test-icon.svg');
   });
 });
