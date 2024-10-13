@@ -5,8 +5,8 @@ import {
   input,
 } from '@angular/core';
 
-import type { NotificationSeverity } from 'src/app/types/notification-severity.type';
-import { IconComponent } from '../../atoms/icon/icon.component';
+import type { NotificationSeverity } from 'src/app/services/notification/types/notification-severity.type';
+import { IconMaterialComponent } from '../../atoms/icon-material/icon-material.component';
 import { MESSAGE_DICTIONARY } from './dictionary.constant';
 
 /**
@@ -25,7 +25,7 @@ import { MESSAGE_DICTIONARY } from './dictionary.constant';
   },
   template: `
     @if (showIcon()) {
-      <lib-icon [name]="messageIcon()" class="my-1 !mx-0" />
+      <lib-icon-material [name]="messageIcon()" class="my-1 !mx-0" />
     }
     <div class="p-1 flex flex-col">
       <span [class]="{ 'font-bold': !!details }" [innerHTML]="summary()"></span>
@@ -34,30 +34,29 @@ import { MESSAGE_DICTIONARY } from './dictionary.constant';
       }
     </div>
   `,
-  imports: [IconComponent],
+  imports: [IconMaterialComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MessageComponent {
   /** Primary message of the notification */
   summary = input.required<string>();
 
-  /** Severity of the message, Defines the type of Notification to be displayed */
+  /** Severity of the message, Defines the type of Notification to be displayed
+   * @default 'info'
+   */
   severity = input<NotificationSeverity>('info');
 
-  /** Secondary message, provide more context (can be omitted) */
+  /** Secondary message, provide more context (can be omitted)
+   * @default undefined
+   */
   details = input<string>();
 
-  /** Whether to display an icon before the message */
+  /** Whether to display an icon before the message
+   * @default true
+   */
   showIcon = input<boolean>(true);
 
-  messageIcon = computed(() => {
-    return MESSAGE_DICTIONARY[this.severity()].icon ?? 'info';
-  });
+  messageIcon = computed(() => MESSAGE_DICTIONARY[this.severity()].icon);
 
-  messageColor = computed(() => {
-    return (
-      MESSAGE_DICTIONARY[this.severity()].color ??
-      MESSAGE_DICTIONARY['info'].color
-    );
-  });
+  messageColor = computed(() => MESSAGE_DICTIONARY[this.severity()].color);
 }
