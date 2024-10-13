@@ -1,5 +1,7 @@
 # Angular Web User Interface 🎨
 
+[![Deploy status](https://github.com/louiiuol/ngx-lib/actions/workflows/deploy.yml/badge.svg)](https://github.com/louiiuol/ngx-lib/actions/workflows/deploy.yml)
+
 > Angular library of components, services & patterns easing development of user interfaces. This is not a framework, nor a cdk, nut simply a collection of components following best practices in angular web development.
 >
 > This repository was created as a model for creating actual application. Feel free to use take any components you want 🙌
