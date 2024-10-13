@@ -12,10 +12,7 @@ In order to use this component in your application, you must follow these steps:
 Insert the following script in your `index.html` or `angular.json` file.
 
 ```html
-<link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 ```
 
 ### Adding Font variation
@@ -38,6 +35,6 @@ You can now start importing this component in your application !
 
 ## Playground 🕹️
 
-{{ NgDocActions.playground("IconMaterialPlayground") }}
+{{ NgDocActions.playground("IconMaterialPlayground", {inputs: {name: "home"} }) }}
 
 <div id="end"></div>

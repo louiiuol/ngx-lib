@@ -29,6 +29,6 @@ You can now start importing this component in your application !
 
 ## Playground 🕹️
 
-{{ NgDocActions.playground("IconPlayground") }}
+{{ NgDocActions.playground("IconPlayground", {inputs: {name: "logo"} }) }}
 
 <div id="end"></div>

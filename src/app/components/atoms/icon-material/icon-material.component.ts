@@ -11,9 +11,10 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   selector: 'lib-icon-material',
   standalone: true,
   host: {
-    class: 'material-symbols-outlined',
+    class: 'material-symbols-outlined inline-block',
     '[style.width]': 'size()',
     '[style.height]': 'size()',
+    '[style.fontSize]': 'size()',
   },
   template: `{{ name() }}`,
   changeDetection: ChangeDetectionStrategy.OnPush,

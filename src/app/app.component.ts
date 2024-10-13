@@ -1,6 +1,6 @@
 import type { AfterViewChecked } from '@angular/core';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import {
   NgDocNavbarComponent,
   NgDocRootComponent,
@@ -29,7 +29,8 @@ import { LocalStorageService } from './services/storage/local-storage.service';
       <ng-doc-navbar>
         <h3
           ngDocNavbarLeft
-          class="text-2xl text-primary-500 flex items-center gap-2"
+          class="text-2xl text-primary-500 flex items-center gap-2 cursor-pointer"
+          routerLink="/"
         >
           <lib-icon-material name="construction" class="cursor-pointer" />
           {{ appName }}
@@ -42,6 +43,7 @@ import { LocalStorageService } from './services/storage/local-storage.service';
   `,
   imports: [
     RouterOutlet,
+    RouterLink,
     NotificationCenterComponent,
     NgDocRootComponent,
     NgDocNavbarComponent,

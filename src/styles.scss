@@ -14,8 +14,16 @@
     "opsz" 24;
 }
 
+/** Custom CSS Variables */
 :root {
   --primary-color: #fb723c;
   --accent-color: #ed7f8d;
   --warn-color: #c81e11;
+}
+
+/** SVG Icon Styles */
+lib-icon svg {
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
 }

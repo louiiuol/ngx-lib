@@ -23,19 +23,12 @@ const ICONS_PATH = '/icons';
   selector: 'lib-icon',
   standalone: true,
   host: {
+    class: 'inline-block',
     '[style.width]': 'size()',
     '[style.aspect-ratio]': 'aspectRatio()',
+    '[style.color]': 'color()',
   },
   template: ``,
-  styles: [
-    `
-      :host svg {
-        fill: currentColor;
-        width: 100%;
-        height: 100%;
-      }
-    `,
-  ],
   imports: [AsyncPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -45,12 +38,6 @@ export class IconComponent {
    * (must match the filename located in assets/icons folder, without extension .svg)
    * */
   name = input.required<string>();
-
-  /**
-   * Alternative text to be displayed when the icon is not available
-   * @default 'icon'
-   * */
-  alt = input<string>('icon');
 
   /**
    * Size of the icon (must include css unit)
