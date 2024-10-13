@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { IconMaterialComponent } from 'src/app/components/atoms/icon-material/icon-material.component';
 
 @Component({
   selector: 'lib-header',
@@ -8,7 +9,10 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
     class: 'py-6 px-12  flex justify-between items-center gap-12 bg-white',
   },
   template: `
-    <strong class="text-2xl text-primary-500">{{ appName }}</strong>
+    <strong class="text-2xl text-primary-500">
+      <lib-icon-material name="menu" class="cursor-pointer" />
+      {{ appName }}
+    </strong>
     <nav class="flex-1  justify-end items-center gap-3 hidden">
       @for (route of routes; track $index) {
         <a class="text-primary-200" [routerLink]="route.path" class="mr-4">
@@ -17,7 +21,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
       }
     </nav>
   `,
-  imports: [RouterModule],
+  imports: [RouterModule, IconMaterialComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {

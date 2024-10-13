@@ -20,7 +20,7 @@ import { IconComponent } from 'src/app/components/atoms/icon/icon.component';
       friend.
     </h1>
     <p class="text-2xl text-accent-300">Let's start building some UI 🎨</p>
-    <lib-icon svg="logo" alt="Website logo" size="150px" />
+    <lib-icon name="logo" color="blue" alt="Website logo" size="150px" />
   `,
   imports: [IconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
