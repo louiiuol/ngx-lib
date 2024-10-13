@@ -29,7 +29,7 @@ const ICONS_PATH = '/icons';
   template: ``,
   styles: [
     `
-      ::ng-deep svg {
+      :host svg {
         fill: currentColor;
         width: 100%;
         height: 100%;

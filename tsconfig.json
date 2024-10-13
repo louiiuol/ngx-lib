@@ -27,7 +27,15 @@
     "baseUrl": ".",
     "paths": {
       "@types/*": ["./src/app/types/*"],
-      "@mocks/*": ["./src/mocks/*"],
+      "@mocks/*": [
+        "./src/mocks/*"
+      ],
+      "@ng-doc/generated": [
+        "./ng-doc/ngx-lib/index.ts"
+      ],
+      "@ng-doc/generated/*": [
+        "./ng-doc/ngx-lib/*"
+      ],
       "@env": ["src/environments.ts"]
     }
   },

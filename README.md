@@ -15,7 +15,7 @@
 | [tailwind](https://tailwindcss.com/docs/screens) | `^3.4.13` |
 | [typescript](https://www.typescriptlang.org/) | `~5.5.2` |
 
-> More dependencies can be found inside [package.json](./package.json).
+> More dependencies can be found inside [package.json](https://github.com/louiiuol/ngx-lib/blob/main/package.json).
 
 ## Get Started 🚀
 
@@ -32,4 +32,4 @@
 
 ## Versions 🔖
 
-> A complete changelog can be found in [dedicated markdown](./docs/CHANGELOG.md). Which resume current progress. You can also found what is in the current development inside [TODO](./docs/TODO.md) markdown.
+> A complete changelog can be found in [dedicated markdown](https://github.com/louiiuol/ngx-lib/blob/main/CHANGELOG.md). Which resume current progress. You can also found what is in the current development inside [TODO](https://github.com/louiiuol/ngx-lib/blob/main/TODO.md) markdown.
