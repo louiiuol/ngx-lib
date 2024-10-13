@@ -40,6 +40,16 @@
           "url": "https://tailwindcss.com/docs/functions-and-directives#variants"
         }
       ]
+    },
+    {
+      "name": "@apply",
+      "description": "Apply css class right inside you selector.",
+      "references": [
+        {
+          "name": "Tailwind Documentation | Extracting classes with @apply",
+          "url": "https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply"
+        }
+      ]
     }
   ]
 }
