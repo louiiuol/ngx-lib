@@ -11,7 +11,7 @@ import { MESSAGE_DICTIONARY } from './dictionary.constant';
 
 /**
  * Simple component to display inline container with colored messages depending on given
- * severity. Check this component's `@Input` for more informations
+ * severity.
  *
  * @author louiiuol
  */
@@ -20,7 +20,7 @@ import { MESSAGE_DICTIONARY } from './dictionary.constant';
   standalone: true,
   host: {
     class:
-      'flex items-center justify-between gap-3 border-l-4 rounded-r px-4 py-2 shadow-md',
+      'flex items-center justify-start gap-3 border rounded-lg px-4 py-2 shadow-md',
     '[class]': 'messageColor() ',
   },
   template: `
@@ -30,7 +30,7 @@ import { MESSAGE_DICTIONARY } from './dictionary.constant';
     <div class="p-1 flex flex-col">
       <span [class]="{ 'font-bold': !!details }" [innerHTML]="summary()"></span>
       @if (details(); as details) {
-        <span class="text-sm" [innerHTML]="details"></span>
+        <span class="text-sm break-all" [innerHTML]="details"></span>
       }
     </div>
   `,
@@ -49,7 +49,7 @@ export class MessageComponent {
   /** Secondary message, provide more context (can be omitted)
    * @default undefined
    */
-  details = input<string>();
+  details = input<string>('');
 
   /** Whether to display an icon before the message
    * @default true
