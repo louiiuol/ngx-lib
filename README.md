@@ -16,6 +16,7 @@
 | [rxjs](https://rxjs.dev/api) | `~7.8.0` |
 | [tailwind](https://tailwindcss.com/docs/screens) | `^3.4.13` |
 | [typescript](https://www.typescriptlang.org/) | `~5.5.2` |
+| [ngdoc](https://ng-doc.com/) | `18.2.0` |
 
 > More dependencies can be found inside [package.json](https://github.com/louiiuol/ngx-lib/blob/main/package.json).
 
@@ -28,10 +29,8 @@
 | `npm run start` | Serves application locally to <https://localhost:4200> |
 | `npm run build` | Builds application in production mode to `dist/ngx-lib/browser` |
 | `npm run watch` | Builds application in development mode and watch for file change |
-| `npm run test` | Launch unit tests with Jest runner |
-| `npm run test:watch` | Launch unit tests and watch for files change |
 | `npm run lint` | Lint repository with eslint & prettier. |
 
 ## Versions 🔖
 
-> A complete changelog can be found in [dedicated markdown](https://github.com/louiiuol/ngx-lib/blob/main/CHANGELOG.md). Which resume current progress. You can also found what is in the current development inside [TODO](https://github.com/louiiuol/ngx-lib/blob/main/TODO.md) markdown.
+> A complete changelog can be found in [dedicated markdown](https://louiiuol.github.io/ngx-lib/versions/changelog). Which resume current progress. You can also found what is in the current development inside [TODO](https://louiiuol.github.io/ngx-lib/versions/todo) markdown.

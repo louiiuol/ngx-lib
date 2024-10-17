@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { IconMaterialComponent } from '../icon-material/icon-material.component';
 
 /**
  * Simple button component with multiple styles.
@@ -10,15 +11,16 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   standalone: true,
   host: {
     class:
-      'inline-flex justify-center items-center rounded-md cursor-pointer overflow-hidden relative border-transparent border',
+      'inline-flex justify-center gap-2 items-center rounded-md cursor-pointer overflow-hidden relative border-transparent border m-2',
     '[attr.data-color]': 'color()',
     '[attr.data-size]': 'size()',
     '[attr.data-rounded]': 'rounded()',
     '[attr.data-disabled]': 'disabled()',
     '[attr.data-appearance]': 'appearance()',
-    '[attr.data-full]': 'full()',
+    '[class.w-full]': 'full()',
   },
-  template: `<ng-content />`,
+  template: ` <ng-content /> `,
+  imports: [IconMaterialComponent],
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -43,7 +45,7 @@ export class ButtonComponent {
 
   /**
    * Whether the button should have rounded corners.
-   * @default false
+   * @default true
    */
   rounded = input(true);
 
@@ -56,7 +58,7 @@ export class ButtonComponent {
 
   /**
    * Appearance of the button.
-   * @default 'raised'
+   * @default 'flat'
    */
-  appearance = input<'basic' | 'flat' | 'stroked'>('flat');
+  appearance = input<'basic' | 'flat' | 'stroked' | 'icon' | 'icon-stroked' | 'fab'>('flat');
 }

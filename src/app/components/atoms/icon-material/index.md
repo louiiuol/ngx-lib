@@ -3,6 +3,13 @@ Simple component to display an icon from material-symbols-outlined font.
 * Refer to the material-symbols-outlined font for the list of available icons.
 * <https://fonts.google.com/icons>
 
+
+## Playground 🕹️
+
+{{ NgDocActions.playground("IconMaterialPlayground", {inputs: {name: "home"} }) }}
+
+<div id="end"></div>
+
 ## Pre requirements
 
 In order to use this component in your application, you must follow these steps:
@@ -32,9 +39,3 @@ Simply add this selector to your `style.scss` file. Adapt this settings to match
 ### That's it 🎉
 
 You can now start importing this component in your application !
-
-## Playground 🕹️
-
-{{ NgDocActions.playground("IconMaterialPlayground", {inputs: {name: "home"} }) }}
-
-<div id="end"></div>

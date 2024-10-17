@@ -1,12 +1,15 @@
 :host {
   --button-color: #fff;
-  &[data-appearance="flat"] {
+  &[data-appearance="flat"],
+  &[data-appearance="fab"] {
     background-color: var(--button-background);
     color: var(--button-color);
   }
 
   &[data-appearance="basic"],
-  &[data-appearance="stroked"] {
+  &[data-appearance="stroked"],
+  &[data-appearance="icon"] ,
+  &[data-appearance="icon-stroked"] {
     background-color: transparent;
     color: var(--button-background);
     &:hover:before {
@@ -16,7 +19,8 @@
     }
   }
 
-  &[data-appearance="stroked"] {
+  &[data-appearance="stroked"],
+  &[data-appearance="icon-stroked"] {
     border: 1px solid currentColor;
   }
 
@@ -33,24 +37,47 @@
   }
 
   &[data-size="small"] {
-    @apply px-3 py-1;
+    &:not([data-appearance="icon"]), &:not([data-appearance="icon-stroked"]), &:not([data-appearance="fab"]) {
+      @apply px-3 py-1 text-sm;
+    }
+    &[data-appearance="icon"], &[data-appearance="icon-stroked"], &[data-appearance="fab"] {
+      @apply p-1;
+    }
+    &[data-rounded="true"] {
+      @apply rounded-lg;
+    }
   }
 
   &[data-size="medium"] {
-    @apply px-6 py-3 text-lg;
+    &:not([data-appearance="icon"]), &:not([data-appearance="icon-stroked"]), &:not([data-appearance="fab"]) {
+      @apply px-6 py-3;
+    }
+    &[data-appearance="icon"], &[data-appearance="icon-stroked"], &[data-appearance="fab"]  {
+      @apply p-3;
+    }
+
+    &[data-rounded="true"] {
+      @apply rounded-2xl;
+    }
   }
 
   &[data-size="large"] {
-    @apply px-7 py-4 text-xl;
+    &:not([data-appearance="icon"]), &:not([data-appearance="icon-stroked"]), &:not([data-appearance="fab"]) {
+      @apply px-7 py-4 text-xl;
+    }
+    &[data-appearance="icon"], &[data-appearance="icon-stroked"], &[data-appearance="fab"]  {
+      @apply p-4;
+    }
+    &[data-rounded="true"] {
+      @apply rounded-2xl;
+    }
   }
 
   &[data-full="true"] {
     @apply w-full;
   }
 
-  &[data-rounded="true"] {
-    border-radius: 24px;
-  }
+
 
   &[data-disabled="true"] {
     opacity: 0.5;

@@ -1,5 +1,3 @@
-# Current development ⏰
-
 > Tasks on development scope (more tasks can be found in this repository using TODO Tree -vscode extensions)
 
 ## Init application 🎉
