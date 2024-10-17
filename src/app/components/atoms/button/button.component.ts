@@ -1,5 +1,4 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { IconMaterialComponent } from '../icon-material/icon-material.component';
 
 /**
  * Simple button component with multiple styles.
@@ -20,7 +19,6 @@ import { IconMaterialComponent } from '../icon-material/icon-material.component'
     '[class.w-full]': 'full()',
   },
   template: ` <ng-content /> `,
-  imports: [IconMaterialComponent],
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
