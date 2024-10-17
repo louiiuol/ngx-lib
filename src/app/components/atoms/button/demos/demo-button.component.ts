@@ -7,24 +7,24 @@ import { ButtonComponent } from '../button.component';
   template: `
   <div class="p-6">
     <p>Simple button</p>
-      <lib-button (click)="notify()">My button</lib-button>
+      <button lib-button (click)="notify()">My button</button>
       <hr />
       <p>Button with text and icon</p>
-      <lib-button (click)="notify()" disabled rounded>
+      <button lib-button (click)="notify()" disabled rounded>
         <lib-icon-material name="favorite" />
         My button
-        </lib-button>
-        <hr />
-        <p>Button with icon</p>
-        <lib-button appearance="fab">
-        <lib-icon-material name="favorite" />
-        </lib-button>
-        <lib-button appearance="icon" color="accent">
-        <lib-icon-material name="favorite" rounded />
-        </lib-button>
-        <lib-button appearance="icon-stroked" rounded>
-        <lib-icon-material name="favorite" />
-        </lib-button>
+      </button>
+      <hr />
+      <p>Button with icon</p>
+      <button lib-button appearance="fab">
+      <lib-icon-material name="favorite" />
+      </button>
+      <button lib-button appearance="icon" color="accent"></button>
+      <button lib-icon-material name="favorite" rounded >
+      </button>
+      <button lib-button appearance="icon-stroked" rounded>
+      <lib-icon-material name="favorite" />
+      </button>
   </div>
   `,
   standalone: true,

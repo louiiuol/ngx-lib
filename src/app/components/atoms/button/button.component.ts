@@ -6,7 +6,7 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@an
  * @author louiiuol
  */
 @Component({
-  selector: 'lib-button',
+  selector: 'button[lib-button]',
   standalone: true,
   host: {
     class:
@@ -17,6 +17,7 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@an
     '[attr.data-disabled]': 'disabled()',
     '[attr.data-appearance]': 'appearance()',
     '[class.w-full]': 'full()',
+    '[attr.type]': 'type()',
   },
   template: ` <ng-content /> `,
   styleUrls: ['./button.component.scss'],
@@ -58,4 +59,6 @@ export class ButtonComponent {
    * @default 'flat'
    */
   appearance = input<'basic' | 'flat' | 'stroked' | 'icon' | 'icon-stroked' | 'fab'>('flat');
+
+  type = input<'button' | 'submit' | 'reset'>('button');
 }
