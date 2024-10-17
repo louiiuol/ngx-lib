@@ -10,7 +10,7 @@ import { ButtonComponent } from '../button.component';
       <lib-button (click)="notify()">My button</lib-button>
       <hr />
       <p>Button with text and icon</p>
-      <lib-button (click)="notify()">
+      <lib-button (click)="notify()" disabled rounded>
         <lib-icon-material name="favorite" />
         My button
         </lib-button>
@@ -20,9 +20,9 @@ import { ButtonComponent } from '../button.component';
         <lib-icon-material name="favorite" />
         </lib-button>
         <lib-button appearance="icon" color="accent">
-        <lib-icon-material name="favorite" />
+        <lib-icon-material name="favorite" rounded />
         </lib-button>
-        <lib-button appearance="icon-stroked">
+        <lib-button appearance="icon-stroked" rounded>
         <lib-icon-material name="favorite" />
         </lib-button>
   </div>

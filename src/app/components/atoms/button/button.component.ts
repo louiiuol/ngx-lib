@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { IconMaterialComponent } from '../icon-material/icon-material.component';
 
 /**
@@ -41,20 +41,19 @@ export class ButtonComponent {
    * Whether the button should take the full width.
    * @default false
    */
-  full = input(false);
+  full = input(false, { transform: booleanAttribute });
 
   /**
    * Whether the button should have rounded corners.
-   * @default true
+   * @default false
    */
-  rounded = input(true);
+  rounded = input(false, { transform: booleanAttribute });
 
   /**
    * Whether the button should be disabled.
    * @default false
    */
-  disabled = input(false);
-  // TODO Prevent click event when disabled
+  disabled = input(false, { transform: booleanAttribute });
 
   /**
    * Appearance of the button.
