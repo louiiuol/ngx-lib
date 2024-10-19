@@ -1,0 +1,72 @@
+[
+  {
+    "title": "ngx-lib",
+    "items": [
+      {
+        "route": "/api/classes/api/NotificationCenterComponent",
+        "type": "Component",
+        "name": "NotificationCenterComponent"
+      },
+      {
+        "route": "/api/classes/api/FileService",
+        "type": "Injectable",
+        "name": "FileService"
+      },
+      {
+        "route": "/api/classes/api/NotificationService",
+        "type": "Injectable",
+        "name": "NotificationService"
+      },
+      {
+        "route": "/api/classes/api/LocalStorageService",
+        "type": "Injectable",
+        "name": "LocalStorageService"
+      },
+      {
+        "route": "/api/type-aliases/api/ButtonAppearance",
+        "type": "TypeAlias",
+        "name": "ButtonAppearance"
+      },
+      {
+        "route": "/api/classes/api/ButtonComponent",
+        "type": "Component",
+        "name": "ButtonComponent"
+      },
+      {
+        "route": "/api/classes/api/IconComponent",
+        "type": "Component",
+        "name": "IconComponent"
+      },
+      {
+        "route": "/api/classes/api/IconMaterialComponent",
+        "type": "Component",
+        "name": "IconMaterialComponent"
+      },
+      {
+        "route": "/api/variables/api/MESSAGE_DICTIONARY",
+        "type": "Variable",
+        "name": "MESSAGE_DICTIONARY"
+      },
+      {
+        "route": "/api/classes/api/MessageComponent",
+        "type": "Component",
+        "name": "MessageComponent"
+      },
+      {
+        "route": "/api/type-aliases/api/NotifyOptions",
+        "type": "TypeAlias",
+        "name": "NotifyOptions"
+      },
+      {
+        "route": "/api/type-aliases/api/NotificationSeverity",
+        "type": "TypeAlias",
+        "name": "NotificationSeverity"
+      },
+      {
+        "route": "/api/type-aliases/api/Notification",
+        "type": "TypeAlias",
+        "name": "Notification"
+      }
+    ]
+  }
+]
