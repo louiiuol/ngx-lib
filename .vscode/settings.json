@@ -50,4 +50,9 @@
     "**/*.d.ts": true,
     "**/*.d.ts.map": true
   },
+  "workbench.colorCustomizations": {
+		"statusBar.background": "#bc4f0cac",
+		"statusBar.foreground": "#e5b07a",
+		"statusBarItem.hoverBackground": "#651f0499"
+	}
 }
