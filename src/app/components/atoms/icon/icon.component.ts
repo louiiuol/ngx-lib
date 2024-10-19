@@ -17,6 +17,11 @@ const ICONS_PATH = '/icons';
  * Simple component to display an icon from an svg file
  * located in `assets/icons` folder
  *
+ * @see `FileService`
+ * @example
+ * ```html
+ * <lib-icon name="home" size="3.5rem" color="lightblue"></lib-icon>
+ * ```
  * @author louiiuol
  */
 @Component({
@@ -57,6 +62,9 @@ export class IconComponent {
    */
   color = input<string>('currentColor');
 
+  /**
+   * Subscription to the icon name changes in order to render the svg content
+   */
   protected readonly triggerSubscription = toObservable(this.name)
     .pipe(
       switchMap((name) => this.fileService.getSVG(`${ICONS_PATH}/${name}.svg`)),
@@ -64,7 +72,10 @@ export class IconComponent {
     )
     .subscribe((svgContent) => this.renderSvg(svgContent));
 
-  readonly el = inject(ElementRef<IconComponent>);
+  /**
+   * Inject the element reference to render the svg content in the component
+   */
+  protected readonly el = inject(ElementRef<IconComponent>);
   private readonly fileService = inject(FileService);
   private readonly renderer = inject(Renderer2);
 

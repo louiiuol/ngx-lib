@@ -6,12 +6,9 @@ keyword: ButtonSources
 
 ## Sources
 
-### button.component.ts
-```typescript file="../../button.component.ts"
-
+```typescript group="comp" file="../../button.component.ts" name="button.component.ts"
 ```
 
-### button.component.scss
-```typescript file="../../button.component.scss"
+```typescript group="comp" file="../../button.component.scss" name="button.component.scss"
 
 ```

@@ -5,12 +5,8 @@ import { ButtonDemoComponent } from './demos/demo-button.component';
 
 const Button: NgDocPage = {
   title: `Button`,
-  mdFile: [
-    './tabs/index.md',
-    './tabs/api.md',
-    './tabs/sources.md',
-    './tabs/requirements.md',
-  ],
+  route: 'button',
+  mdFile: ['./tabs/index.md', './tabs/sources.md', './tabs/requirements.md'],
   demos: { ButtonDemoComponent },
   playgrounds: {
     ButtonPlayground: {

@@ -6,6 +6,8 @@ keyword: ButtonRequirements
 
 ## Requirements
 
+> In order to use this component in your application, you must follow these steps:
+
 ### Tailwind CSS
 
 > **note**
