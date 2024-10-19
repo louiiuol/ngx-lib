@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve",
-    "build": "ng build --configuration production",
+    "build": "ng build --configuration production --aot",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --browsers=ChromeHeadless --watch=false",
     "test:watch": "ng test --watch",

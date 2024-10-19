@@ -4,11 +4,16 @@
   &[data-appearance="fab"] {
     background-color: var(--button-background);
     color: var(--button-color);
+    &:hover:before {
+      @apply absolute left-0 top-0 w-full h-full opacity-10;
+      content: "";
+      background-color: black;
+    }
   }
 
   &[data-appearance="basic"],
   &[data-appearance="stroked"],
-  &[data-appearance="icon"] ,
+  &[data-appearance="icon"],
   &[data-appearance="icon-stroked"] {
     background-color: transparent;
     color: var(--button-background);
@@ -37,10 +42,14 @@
   }
 
   &[data-size="small"] {
-    &:not([data-appearance="icon"]), &:not([data-appearance="icon-stroked"]), &:not([data-appearance="fab"]) {
+    &:not([data-appearance="icon"]),
+    &:not([data-appearance="icon-stroked"]),
+    &:not([data-appearance="fab"]) {
       @apply px-3 py-1 text-sm;
     }
-    &[data-appearance="icon"], &[data-appearance="icon-stroked"], &[data-appearance="fab"] {
+    &[data-appearance="icon"],
+    &[data-appearance="icon-stroked"],
+    &[data-appearance="fab"] {
       @apply p-1;
     }
     &[data-rounded="true"] {
@@ -49,11 +58,15 @@
   }
 
   &[data-size="medium"] {
-    &:not([data-appearance="icon"]), &:not([data-appearance="icon-stroked"]), &:not([data-appearance="fab"]) {
-      @apply px-6 py-3;
+    &:not([data-appearance="icon"]),
+    &:not([data-appearance="icon-stroked"]),
+    &:not([data-appearance="fab"]) {
+      @apply px-4 py-2;
     }
-    &[data-appearance="icon"], &[data-appearance="icon-stroked"], &[data-appearance="fab"]  {
-      @apply p-3;
+    &[data-appearance="icon"],
+    &[data-appearance="icon-stroked"],
+    &[data-appearance="fab"] {
+      @apply p-2;
     }
 
     &[data-rounded="true"] {
@@ -62,22 +75,20 @@
   }
 
   &[data-size="large"] {
-    &:not([data-appearance="icon"]), &:not([data-appearance="icon-stroked"]), &:not([data-appearance="fab"]) {
-      @apply px-7 py-4 text-xl;
+    &:not([data-appearance="icon"]),
+    &:not([data-appearance="icon-stroked"]),
+    &:not([data-appearance="fab"]) {
+      @apply px-5 py-2 text-2xl;
     }
-    &[data-appearance="icon"], &[data-appearance="icon-stroked"], &[data-appearance="fab"]  {
-      @apply p-4;
+    &[data-appearance="icon"],
+    &[data-appearance="icon-stroked"],
+    &[data-appearance="fab"] {
+      @apply p-2.5;
     }
     &[data-rounded="true"] {
       @apply rounded-2xl;
     }
   }
-
-  &[data-full="true"] {
-    @apply w-full;
-  }
-
-
 
   &[data-disabled="true"] {
     opacity: 0.5;

@@ -1,4 +1,4 @@
-# Versions 🔖
+All features of this applications are listed here
 
 ## V0.0.1 - Init application 🎉
 

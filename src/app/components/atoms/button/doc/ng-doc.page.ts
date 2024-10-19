@@ -5,12 +5,17 @@ import { ButtonDemoComponent } from './demos/demo-button.component';
 
 const Button: NgDocPage = {
   title: `Button`,
-  mdFile: './index.md',
-  demos: {ButtonDemoComponent},
+  mdFile: [
+    './tabs/index.md',
+    './tabs/api.md',
+    './tabs/sources.md',
+    './tabs/requirements.md',
+  ],
+  demos: { ButtonDemoComponent },
   playgrounds: {
     ButtonPlayground: {
       target: ButtonComponent,
-      template: `<ng-doc-selector>My Button</ng-doc-selector>`,
+      template: `<ng-doc-selector>click me</ng-doc-selector> `,
     },
   },
   category: ComponentsCategory,

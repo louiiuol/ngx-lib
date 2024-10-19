@@ -19,6 +19,9 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 
+/**
+ * @internal
+ */
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),

@@ -18,6 +18,7 @@ import { LocalStorageService } from './services/storage/local-storage.service';
  * The `RouterOutlet` is used to render the content of the application.
  * Refer to Router configuration in `main.ts` to see how the routes are configured.
  *
+ * @internal
  * @author louiiuol
  */
 @Component({
