@@ -14,11 +14,11 @@
     "opsz" 24;
 }
 
-/** Custom CSS Variables */
+/** Variables colors */
 :root {
   --primary-color: #fb723c;
   --accent-color: #ed7f8d;
-  --warn-color: #c81e11;
+  --warn-color: #ff7268;
 }
 
 /** SVG Icon Styles */
@@ -26,4 +26,24 @@ lib-icon svg {
   fill: currentColor;
   width: 100%;
   height: 100%;
+}
+
+/** Demo Styles */
+.ng-demo {
+  @apply flex flex-col p-6 gap-4 items-start justify-start divide-y-2 divide-gray-200;
+  & > section {
+    @apply flex flex-wrap items-center justify-start mb-6 mt-3 p-4;
+    h3 {
+      @apply w-full text-2xl mb-3;
+    }
+    & > .examples-container {
+      @apply flex w-full my-3;
+      & > h2 {
+        @apply w-36 font-semibold text-lg inline-flex items-center;
+      }
+      & > .examples-list {
+        @apply inline-flex gap-3 items-center;
+      }
+    }
+  }
 }
