@@ -11,8 +11,6 @@ import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { switchMap } from 'rxjs';
 import { FileService } from 'src/app/services/file/file.service';
 
-const ICONS_PATH = '/icons';
-
 /**
  * Simple component to display an icon from an svg file
  * located in `assets/icons` folder
@@ -45,8 +43,12 @@ export class IconComponent {
   name = input.required<string>();
 
   /**
-   * Size of the icon (must include css unit)
-   * @default '1.5rem'
+   * Optional path to the icons folder. Default is `/icons`
+   */
+  path = input<string>('/icons');
+
+  /**
+   * Size of the icon (must include css unit). Default is '1.5rem'
    */
   size = input<string>('1.5rem');
 
@@ -67,7 +69,9 @@ export class IconComponent {
    */
   protected readonly triggerSubscription = toObservable(this.name)
     .pipe(
-      switchMap((name) => this.fileService.getSVG(`${ICONS_PATH}/${name}.svg`)),
+      switchMap((name) =>
+        this.fileService.getSVG(`${this.path()}/${name}.svg`),
+      ),
       takeUntilDestroyed(),
     )
     .subscribe((svgContent) => this.renderSvg(svgContent));
@@ -83,7 +87,7 @@ export class IconComponent {
    * Render the svg content in the component
    * @param element svg content to be rendered
    */
-  private renderSvg(element: HTMLParagraphElement | SVGElement | null) {
+  private renderSvg(element: SVGElement | null) {
     const svgElement = element?.querySelector('svg');
     if (svgElement) {
       this.renderer.setAttribute(svgElement, 'width', this.size());

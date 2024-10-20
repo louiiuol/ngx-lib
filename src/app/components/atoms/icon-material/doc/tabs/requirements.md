@@ -1,18 +1,17 @@
-Simple component to display an icon from material-symbols-outlined font.
+---
+title: Requirements
+route: requirements
+keyword: IconMaterialRequirements
+---
 
-* Refer to the material-symbols-outlined font for the list of available icons.
-* <https://fonts.google.com/icons>
+## Requirements
 
+> In order to use this component in your application, you must follow these steps:
 
-## Playground 🕹️
+### Tailwind CSS
 
-{{ NgDocActions.playground("IconMaterialPlayground", {inputs: {name: "home"} }) }}
-
-<div id="end"></div>
-
-## Pre requirements
-
-In order to use this component in your application, you must follow these steps:
+> **note**
+> All of the components in this library use tailwind to render the UI. So make sure you have it configured on you project or adapt the code accordingly.
 
 ### Adding Google font
 
@@ -38,4 +37,5 @@ Simply add this selector to your `style.scss` file. Adapt this settings to match
 
 ### That's it 🎉
 
-You can now start importing this component in your application !
+> **success**
+> You can import the source code and make it yours right away 🎉

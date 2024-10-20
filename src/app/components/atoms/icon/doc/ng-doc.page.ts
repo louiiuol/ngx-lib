@@ -9,7 +9,7 @@ const Icon: NgDocPage = {
   playgrounds: {
     IconPlayground: {
       target: IconComponent,
-      template: `<ng-doc-selector>favorite</ng-doc-selector> `,
+      template: `<ng-doc-selector></ng-doc-selector> `,
     },
   },
   category: ComponentsCategory,
