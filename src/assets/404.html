@@ -4,14 +4,8 @@
     <title>ngx lib - Not Found - Redirecting</title>
     <meta http-equiv="refresh" content="0; URL='/ngx-lib/'" />
     <script type="text/javascript">
-      // Check if the current path isn't the root ("/ngx-lib/")
-      if (window.location.pathname !== "/ngx-lib/") {
-        alert(window.location.pathname);
-        // Redirect the user back to the index page while preserving the original route
-        window.location.replace(
-          "/ngx-lib/" + window.location.pathname.substring(1),
-        );
-      }
+      const path = window.location.pathname.replace("/ngx-lib", "");
+      window.location.href = "/ngx-lib/#" + path;
     </script>
   </head>
   <body></body>
