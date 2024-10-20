@@ -66,6 +66,7 @@
                 }
               ],
               "baseHref": "/ngx-lib/",
+              "deployUrl": "/ngx-lib/",
               "outputHashing": "all"
             },
             "development": {

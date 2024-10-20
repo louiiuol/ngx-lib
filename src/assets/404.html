@@ -2,15 +2,10 @@
 <html lang="en">
   <head>
     <title>ngx lib - Not Found - Redirecting</title>
-    <meta http-equiv="refresh" content="0; URL='/ngx-lib/'" />
+    <meta http-equiv="refresh" content="0; URL='./index.html'" />
     <script type="text/javascript">
-      // Check if the current path isn't the root ("/ngx-lib/")
-      if (window.location.pathname !== "/ngx-lib/") {
-        // Redirect the user back to the index page while preserving the original route
-        window.location.replace(
-          "/ngx-lib/" + window.location.pathname.substring(1),
-        );
-      }
+      console.log(window.location.pathname);
+      window.location.href = "./index.html" + window.location.pathname;
     </script>
   </head>
   <body></body>
