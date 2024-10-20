@@ -16,9 +16,11 @@ import { FileService } from 'src/app/services/file/file.service';
  * located in `assets/icons` folder
  *
  * @see `FileService`
+ * @see [Documentation page](https://louiiuol.github.io/ngx-lib/#/components/icon) for more details.
+ *
  * @example
  * ```html
- * <lib-icon name="home" size="3.5rem" color="lightblue"></lib-icon>
+ * <lib-icon name="home" size="3.5rem" color="lightblue" />
  * ```
  * @author louiiuol
  */

@@ -5,6 +5,14 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
  * Refer to the material-symbols-outlined font for the list of available icons.
  * https://fonts.google.com/icons
  *
+ * @see [Documentation page](https://louiiuol.github.io/ngx-lib/#/components/icon-material) for more details.
+ *
+ * @example
+ * ```html
+ * <lib-icon-material name="favorite" />
+ * <lib-icon-material name="favorite" size="3.5rem" />
+ * ```
+ *
  * @author louiiuol
  */
 @Component({

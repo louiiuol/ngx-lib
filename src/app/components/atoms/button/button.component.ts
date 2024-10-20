@@ -26,6 +26,8 @@ export type ButtonAppearance =
  * Button component with different colors, appearances, and sizes.
  * Also supports disabled property to prevent click events.
  *
+ * @see [Documentation page](https://louiiuol.github.io/ngx-lib/#/components/button) for more details.
+ *
  * @example
  * **Important: This component must be called by adding `lib-button` attribute on a button element.**
  * ```html

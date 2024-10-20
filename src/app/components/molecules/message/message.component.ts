@@ -13,6 +13,16 @@ import { MESSAGE_DICTIONARY } from './dictionary.constant';
  * Simple component to display inline container with colored messages depending on given
  * severity.
  *
+ * @see [Documentation page](https://louiiuol.github.io/ngx-lib/#/components/message) for more details.
+ * @see `IconMaterialComponent` to learn how icons are displayed.
+ *
+ * @example
+ * ```html
+ * <lib-message summary="Message summary" severity="info" details="Message details" />
+ * <lib-message summary="An error ocurred" severity="error" details="Error details" />
+ * <lib-message summary="A warning" severity="warning" />
+ * <lib-message summary="A success message" severity="success" />
+ * ```
  * @author louiiuol
  */
 @Component({
@@ -29,34 +39,32 @@ import { MESSAGE_DICTIONARY } from './dictionary.constant';
     }
     <div class="p-1 flex flex-col">
       <span [class]="{ 'font-bold': !!details }" [innerHTML]="summary()"></span>
-      @if (details(); as details) {
-        <span class="text-sm break-all" [innerHTML]="details"></span>
-      }
+      <span class="text-sm break-all" [innerHTML]="details()"></span>
     </div>
   `,
   imports: [IconMaterialComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MessageComponent {
-  /** Primary message of the notification */
+  /** Primary message of the notification. Required input */
   summary = input.required<string>();
 
-  /** Severity of the message, Defines the type of Notification to be displayed
-   * @default 'info'
-   */
+  /** Severity of the message, Defines the type of Notification to be displayed. Default to 'info' */
   severity = input<NotificationSeverity>('info');
 
-  /** Secondary message, provide more context (can be omitted)
-   * @default undefined
-   */
-  details = input<string>();
+  /** Secondary message, provide more context (can be omitted). Default to empty string */
+  details = input<string>('');
 
-  /** Whether to display an icon before the message
-   * @default true
-   */
+  /** Whether to display an icon before the message. Default to true */
   showIcon = input<boolean>(true);
 
-  messageIcon = computed(() => MESSAGE_DICTIONARY[this.severity()].icon);
+  /** Returns the icon name based on the severity of the message */
+  protected readonly messageIcon = computed(
+    () => MESSAGE_DICTIONARY[this.severity()].icon,
+  );
 
-  messageColor = computed(() => MESSAGE_DICTIONARY[this.severity()].color);
+  /** Returns the color class based on the severity of the message */
+  protected readonly messageColor = computed(
+    () => MESSAGE_DICTIONARY[this.severity()].color,
+  );
 }
