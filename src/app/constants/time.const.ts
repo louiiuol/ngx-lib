@@ -14,4 +14,5 @@ export const timeFactors: Record<
   hour: { seconds: 3600, label: 'h', name: 'hour' },
   minute: { seconds: 60, label: 'min', name: 'minute' },
   second: { seconds: 1, label: 'sec', name: 'second' },
+  millisecond: { seconds: 0.001, label: 'ms', name: 'millisecond' },
 };

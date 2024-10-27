@@ -5,4 +5,5 @@ export type TimeUnit =
   | 'day'
   | 'hour'
   | 'minute'
-  | 'second';
+  | 'second'
+  | 'millisecond';
