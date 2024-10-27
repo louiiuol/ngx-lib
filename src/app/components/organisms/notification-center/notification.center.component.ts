@@ -24,8 +24,7 @@ import { NotificationService } from 'src/app/services/notification/notification.
       <lib-message
         [summary]="n.summary"
         [details]="n.details"
-        [severity]="n.severity"
-        [closable]="true"
+        severity="notification"
       />
     }
   `,
