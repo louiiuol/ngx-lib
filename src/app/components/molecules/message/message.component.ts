@@ -7,7 +7,7 @@ import {
 import type { nullish } from 'src/app/types/nullish.type';
 import type { Severity } from 'src/app/types/severity.type';
 import { IconMaterialComponent } from '../../atoms/icon-material/icon-material.component';
-import { MESSAGE_DICTIONARY } from './dictionary.constant';
+import { MESSAGE_DICTIONARY } from './message-dictionary.constant';
 
 /**
  * Simple component to display inline container with colored messages depending on given
