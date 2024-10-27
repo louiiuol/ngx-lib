@@ -98,6 +98,11 @@
         "name": "IconMaterialComponent"
       },
       {
+        "route": "/api/classes/api/LazyImgComponent",
+        "type": "Component",
+        "name": "LazyImgComponent"
+      },
+      {
         "route": "/api/variables/api/MESSAGE_DICTIONARY",
         "type": "Variable",
         "name": "MESSAGE_DICTIONARY"
