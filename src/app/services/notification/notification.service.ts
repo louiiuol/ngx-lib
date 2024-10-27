@@ -2,13 +2,15 @@ import { inject, Injectable, signal } from '@angular/core';
 import { LocalStorageService } from '../storage/local-storage.service';
 import type { Notification } from './types/notification.type';
 
-import { v4 as uuidV4 } from 'uuid';
-import type { NotifyOptions } from './types/notification-options.type';
+import { generateRandomUUID } from 'src/app/helpers/fn/gen-uuid.fn';
 
 /**
  * Simple notification service that allows to send notifications to the user.
  * They are stored in local storage and available through signal.
  * Checkout out Notification interface to see how to customize them.
+ *
+ * @see `LocalStorageService` to understand how notifications are stored.
+ * @see `uuid` npm package to generate unique identifiers.
  *
  * @author louiiuol
  */
@@ -22,53 +24,24 @@ export class NotificationService {
   );
 
   /**
-   * Send notification with given params to the user.
-   * @param title key to be displayed for title of the notification
-   * @param message key to be displayed for description of the notification
-   * @param severity level to apply to notification (default is 'info')
-   * @param key id of the container to display notification in
+   * Add given notification to the list of stored notifications. Can be accessed through `getNotifications()`.
+   * @param summary title of the notification
+   * @param message description of the notification
    */
-  notify({ summary, details, severity = 'info', life = 4000 }: NotifyOptions) {
-    const uuid = uuidV4();
+  notify({ summary, details }: Pick<Notification, 'details' | 'summary'>) {
+    const uuid = generateRandomUUID();
     this.notifications().push({
       uuid,
-      severity,
       summary,
       details,
       seen: false,
-      date: new Date(),
+      emitAt: new Date(),
     });
     this.storage.set({
       key: this.localStorageKey,
       value: this.notifications(),
     });
-    setTimeout(() => this.removeNotification(uuid), life);
   }
-
-  /**
-   * Send Success notification with given params to the user.
-   * @param summary key to be displayed for summary of the notification
-   * @param message key to be displayed for description of the notification
-   * @param key id of the container to display notification in
-   */
-  success = (opt: NotifyOptions) =>
-    this.notify({ ...opt, severity: 'success' });
-
-  /**
-   * Send Error notification with given params to the user.
-   * @param summary key to be displayed for summary of the notification
-   * @param details key to be displayed for description of the notification
-   * @param key id of the container to display notification in
-   */
-  error = (opt: NotifyOptions) => this.notify({ ...opt, severity: 'error' });
-
-  /**
-   * Send Warning notification with given params to the user.
-   * @param summary key to be displayed for summary of the notification
-   * @param details key to be displayed for description of the notification
-   * @param key id of the container to display notification in
-   */
-  warn = (opt: NotifyOptions) => this.notify({ ...opt, severity: 'warn' });
 
   /**
    * Send all current notifications.
@@ -83,9 +56,7 @@ export class NotificationService {
    */
   seenNotification(uuid: string) {
     const updated = this.notifications().map((n) => {
-      if (n.uuid === uuid) {
-        n.seen = true;
-      }
+      if (n.uuid === uuid) n.seen = true;
       return n;
     });
     this.notifications.set(updated);
@@ -105,7 +76,10 @@ export class NotificationService {
     }
   }
 
-  private removeNotification(uuid: string) {
+  /*
+   * Removes notification from the list.
+   */
+  removeNotification(uuid: string) {
     const updated = this.notifications().filter((n) => n.uuid !== uuid);
     this.notifications.set(updated);
     this.storage.set({

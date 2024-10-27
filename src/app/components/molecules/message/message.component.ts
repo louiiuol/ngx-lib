@@ -4,8 +4,8 @@ import {
   computed,
   input,
 } from '@angular/core';
-
-import type { NotificationSeverity } from 'src/app/services/notification/types/notification-severity.type';
+import type { nullish } from 'src/app/types/nullish.type';
+import type { Severity } from 'src/app/types/severity.type';
 import { IconMaterialComponent } from '../../atoms/icon-material/icon-material.component';
 import { MESSAGE_DICTIONARY } from './dictionary.constant';
 
@@ -50,10 +50,10 @@ export class MessageComponent {
   summary = input.required<string>();
 
   /** Severity of the message, Defines the type of Notification to be displayed. Default to 'info' */
-  severity = input<NotificationSeverity>('info');
+  severity = input<Severity>('info');
 
   /** Secondary message, provide more context (can be omitted). Default to empty string */
-  details = input<string>('');
+  details = input<string | nullish>('');
 
   /** Whether to display an icon before the message. Default to true */
   showIcon = input<boolean>(true);

@@ -30,7 +30,7 @@ lib-icon svg {
 
 /** Demo Styles */
 .ng-demo {
-  @apply flex flex-col p-6 gap-4 items-start justify-start divide-y-2 divide-gray-200;
+  @apply flex flex-col p-6 gap-4 items-start justify-start divide-y-2 divide-gray-200 relative;
   & > section {
     @apply flex flex-wrap items-center justify-start mb-6 mt-3 p-4;
     h3 {

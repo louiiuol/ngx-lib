@@ -7,10 +7,11 @@ import {
   NgDocSidebarComponent,
 } from '@ng-doc/app';
 import { IconMaterialComponent } from './components/atoms/icon-material/icon-material.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { NotificationCenterComponent } from './layout/notification-center/notification.center.component';
-import { NotificationService } from './services/notification/notification.service';
+import { FooterComponent } from './components/organisms/footer/footer.component';
+import { NotificationCenterComponent } from './components/organisms/notification-center/notification.center.component';
+import { ToasterComponent } from './components/organisms/toaster/toaster.component';
 import { LocalStorageService } from './services/storage/local-storage.service';
+import { ToastService } from './services/toast/toast.service';
 
 /**
  * Root component of the application. Uses the `NgDocRootComponent` to provide a layout for the application.
@@ -51,11 +52,12 @@ import { LocalStorageService } from './services/storage/local-storage.service';
     NgDocSidebarComponent,
     IconMaterialComponent,
     FooterComponent,
+    ToasterComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements AfterViewChecked {
-  notifier = inject(NotificationService);
+  notifier = inject(ToastService);
   storage = inject(LocalStorageService);
   appName = 'ngx lib';
 
@@ -65,8 +67,8 @@ export class AppComponent implements AfterViewChecked {
 
   private greetings() {
     if (!this.storage.check('onboarded')) {
-      this.notifier.notify({
-        summary: 'Welcome !',
+      this.notifier.success({
+        summary: 'Greetings, friend. 🎉',
         details:
           'Welcome to this library! Hope it will help you in your project. Enjoy !✨',
       });

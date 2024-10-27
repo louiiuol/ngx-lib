@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+} from '@angular/core';
 import { MessageComponent } from 'src/app/components/molecules/message/message.component';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 
@@ -15,11 +20,12 @@ import { NotificationService } from 'src/app/services/notification/notification.
     class: 'absolute right-2 top-16 z-50 flex flex-col justify-end gap-3',
   },
   template: `
-    @for (n of notifications(); track n.uuid) {
+    @for (n of filteredNotifications(); track n.uuid) {
       <lib-message
         [summary]="n.summary"
         [details]="n.details"
         [severity]="n.severity"
+        [closable]="true"
       />
     }
   `,
@@ -29,4 +35,8 @@ import { NotificationService } from 'src/app/services/notification/notification.
 export class NotificationCenterComponent {
   protected readonly notifications =
     inject(NotificationService).getNotifications();
+
+  protected readonly filteredNotifications = computed(() =>
+    this.notifications().filter((n) => !n.seen),
+  );
 }
