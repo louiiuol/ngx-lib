@@ -9,15 +9,15 @@ import { TruncateTextPipe } from '../../truncate-text.pipe';
   template: `
     <div class="ng-demo">
       <section>
-        <h3 class="w-full text-2xl mb-3">Truncate text demo</h3>
+        <h3 class="w-full text-2xl mb-3">Truncate text examples usage</h3>
         <div class="examples-container">
-          <h2>Default size</h2>
+          <h2>Default</h2>
           <div class="example">
             <p [innerHTML]="content | truncateText"></p>
           </div>
         </div>
         <div class="examples-container">
-          <h2>Custom size</h2>
+          <h2>Custom limit</h2>
           <div class="example">
             <p [innerHTML]="content | truncateText: 15"></p>
           </div>
