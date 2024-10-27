@@ -7,12 +7,6 @@ const TruncateText: NgDocPage = {
   route: 'truncate-text',
   mdFile: ['./tabs/index.md', './tabs/sources.md', './tabs/requirements.md'],
   demos: { TruncateTextDemoComponent },
-  // playgrounds: {
-  //   TruncateTextPlayground: {
-  //     target: TruncateTextComponent,
-  //     template: `<ng-doc-selector>click me</ng-doc-selector> `,
-  //   },
-  // },
   category: PipesCategory,
 };
 
