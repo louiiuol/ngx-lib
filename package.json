@@ -24,10 +24,10 @@
     "@ng-doc/builder": "18.2.0",
     "@ng-doc/core": "18.2.0",
     "@ng-doc/ui-kit": "18.2.0",
+    "html-ellipsis": "^2.0.11",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "uuid": "^10.0.0",
-    "zone.js": "~0.14.10"
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.2.6",
