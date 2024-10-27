@@ -3,9 +3,49 @@
     "title": "ngx-lib",
     "items": [
       {
-        "route": "/api/classes/api/NotificationCenterComponent",
-        "type": "Component",
-        "name": "NotificationCenterComponent"
+        "route": "/api/variables/api/timeFactors",
+        "type": "Variable",
+        "name": "timeFactors"
+      },
+      {
+        "route": "/api/type-aliases/api/nullish",
+        "type": "TypeAlias",
+        "name": "nullish"
+      },
+      {
+        "route": "/api/type-aliases/api/Severity",
+        "type": "TypeAlias",
+        "name": "Severity"
+      },
+      {
+        "route": "/api/type-aliases/api/TimeUnit",
+        "type": "TypeAlias",
+        "name": "TimeUnit"
+      },
+      {
+        "route": "/api/variables/api/generateRandomUUID",
+        "type": "Variable",
+        "name": "generateRandomUUID"
+      },
+      {
+        "route": "/api/classes/api/DurationPipe",
+        "type": "Pipe",
+        "name": "DurationPipe"
+      },
+      {
+        "route": "/api/classes/api/SincePipe",
+        "type": "Pipe",
+        "name": "SincePipe"
+      },
+      {
+        "route": "/api/classes/api/TruncateTextPipe",
+        "type": "Pipe",
+        "name": "TruncateTextPipe"
+      },
+      {
+        "route": "/api/classes/api/WeightPipe",
+        "type": "Pipe",
+        "name": "WeightPipe"
       },
       {
         "route": "/api/classes/api/FileService",
@@ -21,6 +61,21 @@
         "route": "/api/classes/api/LocalStorageService",
         "type": "Injectable",
         "name": "LocalStorageService"
+      },
+      {
+        "route": "/api/classes/api/ToastService",
+        "type": "Injectable",
+        "name": "ToastService"
+      },
+      {
+        "route": "/api/type-aliases/api/Toast",
+        "type": "TypeAlias",
+        "name": "Toast"
+      },
+      {
+        "route": "/api/type-aliases/api/ToastOptions",
+        "type": "TypeAlias",
+        "name": "ToastOptions"
       },
       {
         "route": "/api/type-aliases/api/ButtonAppearance",
@@ -53,14 +108,14 @@
         "name": "MessageComponent"
       },
       {
-        "route": "/api/type-aliases/api/NotifyOptions",
-        "type": "TypeAlias",
-        "name": "NotifyOptions"
+        "route": "/api/classes/api/NotificationCenterComponent",
+        "type": "Component",
+        "name": "NotificationCenterComponent"
       },
       {
-        "route": "/api/type-aliases/api/NotificationSeverity",
-        "type": "TypeAlias",
-        "name": "NotificationSeverity"
+        "route": "/api/classes/api/ToasterComponent",
+        "type": "Component",
+        "name": "ToasterComponent"
       },
       {
         "route": "/api/type-aliases/api/Notification",
