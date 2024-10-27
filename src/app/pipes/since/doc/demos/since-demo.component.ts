@@ -13,9 +13,9 @@ import { SincePipe } from '../../since.pipe';
         <div class="examples-container">
           <h2>Pick a date</h2>
           <div class="example flex gap-4">
-            <input type="date" [(ngModel)]="value" />
+            <input type="datetime-local" [(ngModel)]="dateValue" />
             <p class="text-lg">
-              <em>{{ value | since }}</em>
+              <em>{{ dateValue | since }}</em>
             </p>
           </div>
         </div>
@@ -26,5 +26,5 @@ import { SincePipe } from '../../since.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SinceDemoComponent {
-  value: number | null = null;
+  dateValue: number | null = null;
 }
