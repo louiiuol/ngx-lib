@@ -8,11 +8,6 @@
         "name": "timeFactors"
       },
       {
-        "route": "/api/classes/api/TooltipDirective",
-        "type": "Directive",
-        "name": "TooltipDirective"
-      },
-      {
         "route": "/api/type-aliases/api/nullish",
         "type": "TypeAlias",
         "name": "nullish"
@@ -26,6 +21,11 @@
         "route": "/api/type-aliases/api/TimeUnit",
         "type": "TypeAlias",
         "name": "TimeUnit"
+      },
+      {
+        "route": "/api/classes/api/TooltipDirective",
+        "type": "Directive",
+        "name": "TooltipDirective"
       },
       {
         "route": "/api/variables/api/generateRandomUUID",
