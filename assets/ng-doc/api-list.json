@@ -8,6 +8,11 @@
         "name": "timeFactors"
       },
       {
+        "route": "/api/classes/api/TooltipDirective",
+        "type": "Directive",
+        "name": "TooltipDirective"
+      },
+      {
         "route": "/api/type-aliases/api/nullish",
         "type": "TypeAlias",
         "name": "nullish"
