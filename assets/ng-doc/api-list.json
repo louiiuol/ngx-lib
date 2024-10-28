@@ -118,6 +118,11 @@
         "name": "MessageComponent"
       },
       {
+        "route": "/api/classes/api/TypistComponent",
+        "type": "Component",
+        "name": "TypistComponent"
+      },
+      {
         "route": "/api/classes/api/NotificationCenterComponent",
         "type": "Component",
         "name": "NotificationCenterComponent"
