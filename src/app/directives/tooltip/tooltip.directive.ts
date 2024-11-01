@@ -3,7 +3,6 @@ import {
   Directive,
   effect,
   ElementRef,
-  HostListener,
   inject,
   input,
   SecurityContext,
@@ -24,15 +23,19 @@ import { DomSanitizer } from '@angular/platform-browser';
  * ````
  *
  * @author louiiuol
- * @version 0.0.1
+ * @version 0.0.2
  */
 @Directive({
   selector: '[libTooltip]',
   standalone: true,
+  host: {
+    '(mouseenter)': 'onMouseEnter()',
+    '(mouseleave)': 'onMouseLeave()',
+  },
 })
 export class TooltipDirective implements OnDestroy {
   /**
-   * Required input for the tooltip content.
+   * Tooltip content. Can be HTML as a string. Required input.
    */
   libTooltip = input.required<string>();
 
@@ -41,120 +44,105 @@ export class TooltipDirective implements OnDestroy {
    */
   tooltipClass = input<string>();
 
-  private tooltipElement!: HTMLElement;
+  position = input<'above' | 'below' | 'before' | 'after'>('below');
+
+  private tooltipElement: HTMLElement = document.createElement('div');
   private readonly elementRef = inject(ElementRef);
   private readonly sanitizer = inject(DomSanitizer);
 
+  private readonly tooltipClasses =
+    'absolute bg-gray-700 text-white text-sm py-1 px-2 rounded opacity-0 transition-opacity duration-200 pointer-events-none z-50';
+
   constructor() {
-    // Create the tooltip element
     this.createTooltipElement();
-
-    // Set up effects to react to changes in content and class inputs
-    this.setupContentEffect();
-    this.setupClassEffect();
+    this.syncContent();
+    this.syncCustomClasses();
   }
 
-  private createTooltipElement() {
-    this.tooltipElement = document.createElement('div');
-    // Add default Tailwind CSS classes for styling
-    this.tooltipElement.classList.add(
-      'absolute',
-      'bg-gray-800',
-      'text-white',
-      'text-sm',
-      'py-1',
-      'px-2',
-      'rounded',
-      'opacity-0',
-      'transition-opacity',
-      'duration-200',
-      'pointer-events-none',
-      'z-50',
-    );
+  ngOnDestroy() {
+    if (this.tooltipElement.parentNode)
+      this.tooltipElement.parentNode.removeChild(this.tooltipElement);
   }
 
-  private setupContentEffect() {
-    effect(() => {
-      const content = this.libTooltip();
-
-      // Sanitize the HTML content
-      const sanitizedContent =
-        this.sanitizer.sanitize(SecurityContext.HTML, content) ?? '';
-
-      // Set the sanitized HTML content
-      this.tooltipElement.innerHTML = sanitizedContent;
-    });
-  }
-
-  private setupClassEffect() {
-    effect(() => {
-      const customClasses = this.tooltipClass();
-      // Remove all classes except the default ones
-      const defaultClasses = [
-        'absolute',
-        'opacity-0',
-        'transition-opacity',
-        'duration-200',
-        'pointer-events-none',
-        'z-50',
-        'bg-gray-800',
-        'text-white',
-        'text-sm',
-        'py-1',
-        'px-2',
-        'rounded',
-      ];
-      this.tooltipElement.className = '';
-      this.tooltipElement.classList.add(...defaultClasses);
-
-      // Add custom Tailwind CSS classes if provided
-      if (customClasses) {
-        this.tooltipElement.classList.add(...customClasses.split(' '));
-      }
-    });
-  }
-
-  @HostListener('mouseenter')
-  onMouseEnter() {
+  private onMouseEnter() {
     document.body.appendChild(this.tooltipElement);
     this.updateTooltipPosition();
     this.tooltipElement.classList.remove('opacity-0');
     this.tooltipElement.classList.add('opacity-100');
   }
 
-  @HostListener('mouseleave')
-  onMouseLeave() {
+  private onMouseLeave() {
     this.tooltipElement.classList.remove('opacity-100');
     this.tooltipElement.classList.add('opacity-0');
+    const disappearTimeout = 200;
     setTimeout(() => {
       if (this.tooltipElement.parentNode) {
         this.tooltipElement.parentNode.removeChild(this.tooltipElement);
       }
-    }, 200); // Match the transition duration
+    }, disappearTimeout);
   }
 
-  @HostListener('mousemove')
-  onMouseMove() {
-    this.updateTooltipPosition();
+  private createTooltipElement() {
+    this.tooltipElement.classList.add(...this.tooltipClasses.split(' '));
+  }
+
+  private syncContent() {
+    effect(() => {
+      this.tooltipElement.innerHTML =
+        this.sanitizer.sanitize(SecurityContext.HTML, this.libTooltip()) ?? '';
+    });
+  }
+
+  private syncCustomClasses() {
+    effect(() => {
+      this.tooltipElement.className = '';
+      this.tooltipElement.classList.add(...this.tooltipClasses.split(' '));
+
+      // Add custom Tailwind CSS classes if provided
+      const customClasses = this.tooltipClass();
+      if (customClasses) {
+        this.tooltipElement.classList.add(...customClasses.split(' '));
+      }
+    });
   }
 
   private updateTooltipPosition() {
     const hostPos = this.elementRef.nativeElement.getBoundingClientRect();
     const tooltipPos = this.tooltipElement.getBoundingClientRect();
 
-    // Calculate the position of the tooltip
-    const top = hostPos.top - tooltipPos.height - 8 + window.scrollY;
-    const left =
-      hostPos.left + (hostPos.width - tooltipPos.width) / 2 + window.scrollX;
+    const positions = {
+      above: {
+        top: hostPos.top - tooltipPos.height - 8 + window.scrollY,
+        left:
+          hostPos.left +
+          (hostPos.width - tooltipPos.width) / 2 +
+          window.scrollX,
+      },
+      below: {
+        top: hostPos.bottom + 8 + window.scrollY,
+        left:
+          hostPos.left +
+          (hostPos.width - tooltipPos.width) / 2 +
+          window.scrollX,
+      },
+      before: {
+        top:
+          hostPos.top +
+          (hostPos.height - tooltipPos.height) / 2 +
+          window.scrollY,
+        left: hostPos.left - tooltipPos.width - 8 + window.scrollX,
+      },
+      after: {
+        top:
+          hostPos.top +
+          (hostPos.height - tooltipPos.height) / 2 +
+          window.scrollY,
+        left: hostPos.right + 8 + window.scrollX,
+      },
+    };
 
-    // Set the position
-    this.tooltipElement.style.top = `${top}px`;
-    this.tooltipElement.style.left = `${left}px`;
-  }
-
-  ngOnDestroy() {
-    if (this.tooltipElement.parentNode) {
-      this.tooltipElement.parentNode.removeChild(this.tooltipElement);
-    }
+    const pos = positions[this.position()];
+    this.tooltipElement.style.top = `${pos.top}px`;
+    this.tooltipElement.style.left = `${pos.left}px`;
   }
 }
