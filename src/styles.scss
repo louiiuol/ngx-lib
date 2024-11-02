@@ -42,7 +42,7 @@ lib-icon svg {
         @apply w-36 font-semibold text-lg inline-flex items-center;
       }
       & > .examples-list {
-        @apply inline-flex gap-3 items-center;
+        @apply inline-flex gap-3 items-center flex-wrap;
       }
     }
   }
