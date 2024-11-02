@@ -8,6 +8,11 @@
         "name": "timeFactors"
       },
       {
+        "route": "/api/classes/api/CanDeactivateGuard",
+        "type": "Injectable",
+        "name": "CanDeactivateGuard"
+      },
+      {
         "route": "/api/type-aliases/api/nullish",
         "type": "TypeAlias",
         "name": "nullish"
@@ -38,6 +43,11 @@
         "name": "DurationPipe"
       },
       {
+        "route": "/api/classes/api/InitialsPipe",
+        "type": "Pipe",
+        "name": "InitialsPipe"
+      },
+      {
         "route": "/api/classes/api/SincePipe",
         "type": "Pipe",
         "name": "SincePipe"
@@ -46,6 +56,16 @@
         "route": "/api/classes/api/TruncateTextPipe",
         "type": "Pipe",
         "name": "TruncateTextPipe"
+      },
+      {
+        "route": "/api/classes/api/TrustHtmlPipe",
+        "type": "Pipe",
+        "name": "TrustHtmlPipe"
+      },
+      {
+        "route": "/api/classes/api/TrustUrlPipe",
+        "type": "Pipe",
+        "name": "TrustUrlPipe"
       },
       {
         "route": "/api/classes/api/WeightPipe",
@@ -61,6 +81,11 @@
         "route": "/api/classes/api/NotificationService",
         "type": "Injectable",
         "name": "NotificationService"
+      },
+      {
+        "route": "/api/classes/api/PlatformService",
+        "type": "Injectable",
+        "name": "PlatformService"
       },
       {
         "route": "/api/classes/api/LocalStorageService",
@@ -108,6 +133,11 @@
         "name": "LazyImgComponent"
       },
       {
+        "route": "/api/classes/api/LoaderComponent",
+        "type": "Component",
+        "name": "LoaderComponent"
+      },
+      {
         "route": "/api/variables/api/MESSAGE_DICTIONARY",
         "type": "Variable",
         "name": "MESSAGE_DICTIONARY"
@@ -123,6 +153,11 @@
         "name": "TypistComponent"
       },
       {
+        "route": "/api/classes/api/CardComponent",
+        "type": "Component",
+        "name": "CardComponent"
+      },
+      {
         "route": "/api/classes/api/NotificationCenterComponent",
         "type": "Component",
         "name": "NotificationCenterComponent"
@@ -131,6 +166,46 @@
         "route": "/api/classes/api/ToasterComponent",
         "type": "Component",
         "name": "ToasterComponent"
+      },
+      {
+        "route": "/api/variables/api/capitalize",
+        "type": "Variable",
+        "name": "capitalize"
+      },
+      {
+        "route": "/api/variables/api/clean",
+        "type": "Variable",
+        "name": "clean"
+      },
+      {
+        "route": "/api/variables/api/dashToCamelCase",
+        "type": "Variable",
+        "name": "dashToCamelCase"
+      },
+      {
+        "route": "/api/functions/api/initials",
+        "type": "Function",
+        "name": "initials"
+      },
+      {
+        "route": "/api/type-aliases/api/UserType",
+        "type": "TypeAlias",
+        "name": "UserType"
+      },
+      {
+        "route": "/api/variables/api/addOrReplace",
+        "type": "Variable",
+        "name": "addOrReplace"
+      },
+      {
+        "route": "/api/variables/api/isBoolean",
+        "type": "Variable",
+        "name": "isBoolean"
+      },
+      {
+        "route": "/api/variables/api/isString",
+        "type": "Variable",
+        "name": "isString"
       },
       {
         "route": "/api/type-aliases/api/Notification",
