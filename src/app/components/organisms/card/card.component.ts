@@ -69,7 +69,7 @@ import { IconMaterialComponent } from '../../atoms/icon-material/icon-material.c
 
     @if (cardFooter()) {
       <footer class="flex justify-evenly items-center mt-4">
-        <ng-container *ngTemplateOutlet="cardFooter()"></ng-container>
+        <ng-container *ngTemplateOutlet="cardFooter()" />
       </footer>
     }
   `,
