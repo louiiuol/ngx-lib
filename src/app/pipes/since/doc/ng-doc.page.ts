@@ -3,7 +3,7 @@ import PipesCategory from '../../ng-doc.category';
 import { SinceDemoComponent } from './demos/since-demo.component';
 
 const SincePipe: NgDocPage = {
-  title: `SincePipe`,
+  title: `Since`,
   route: 'since',
   mdFile: ['./tabs/index.md', './tabs/sources.md', './tabs/requirements.md'],
   demos: { SinceDemoComponent },

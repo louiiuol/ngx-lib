@@ -3,7 +3,7 @@ import PipesCategory from '../../ng-doc.category';
 import { DurationDemoComponent } from './demos/duration-demo.component';
 
 const DurationPipe: NgDocPage = {
-  title: `DurationPipe`,
+  title: `Duration`,
   route: 'duration',
   mdFile: ['./tabs/index.md', './tabs/sources.md', './tabs/requirements.md'],
   demos: { DurationDemoComponent },
