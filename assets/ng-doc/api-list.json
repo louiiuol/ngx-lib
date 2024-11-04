@@ -211,6 +211,11 @@
         "route": "/api/type-aliases/api/Notification",
         "type": "TypeAlias",
         "name": "Notification"
+      },
+      {
+        "route": "/api/classes/api/ColorPickerComponent",
+        "type": "Component",
+        "name": "ColorPickerComponent"
       }
     ]
   }
