@@ -23,7 +23,7 @@ import { DomSanitizer } from '@angular/platform-browser';
  * ````
  *
  * @author louiiuol
- * @version 0.0.2
+ * @version 1.0.0
  */
 @Directive({
   selector: '[libTooltip]',
@@ -44,6 +44,11 @@ export class TooltipDirective implements OnDestroy {
    */
   tooltipClass = input<string>();
 
+  /**
+   * Optional property to disable the tooltip.
+   */
+  tooltipDisabled = input<boolean>(false);
+
   position = input<'above' | 'below' | 'before' | 'after'>('below');
 
   private tooltipElement: HTMLElement = document.createElement('div');
@@ -51,7 +56,7 @@ export class TooltipDirective implements OnDestroy {
   private readonly sanitizer = inject(DomSanitizer);
 
   private readonly tooltipClasses =
-    'absolute bg-gray-700 text-white text-sm py-1 px-2 rounded opacity-0 transition-opacity duration-200 pointer-events-none z-50';
+    'absolute bg-gray-700 text-white text-sm py-1 px-2 rounded opacity-0 transition-opacity duration-200 pointer-events-none z-50 max-w-96 text-pretty';
 
   constructor() {
     this.createTooltipElement();
@@ -65,6 +70,7 @@ export class TooltipDirective implements OnDestroy {
   }
 
   private onMouseEnter() {
+    if (this.tooltipDisabled()) return; // Prevent tooltip if disabled
     document.body.appendChild(this.tooltipElement);
     this.updateTooltipPosition();
     this.tooltipElement.classList.remove('opacity-0');
@@ -72,6 +78,7 @@ export class TooltipDirective implements OnDestroy {
   }
 
   private onMouseLeave() {
+    if (this.tooltipDisabled()) return; // Prevent tooltip if disabled
     this.tooltipElement.classList.remove('opacity-100');
     this.tooltipElement.classList.add('opacity-0');
     const disappearTimeout = 200;
