@@ -24,21 +24,31 @@ import { Subscription } from 'rxjs';
   standalone: true,
   template: `
     @if (label()) {
-      <label
-        for="hs-color-input"
-        class="block text-sm font-medium mb-2 dark:text-white"
-      >
+      <label class="block text-sm font-medium mb-2 dark:text-white">
         Color picker
       </label>
     }
     <input
+      class="w-8 h-9 rounded-full border-none bg-transparent appearance-none cursor-pointer"
       type="color"
-      class="p-1 h-10 w-14 block bg-none border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700"
-      id="hs-color-input"
       [formControl]="colorControl"
       title="Choose your color"
     />
   `,
+  styles: [
+    `
+      :host {
+        input::-webkit-color-swatch {
+          border-radius: 50%;
+          border: 2px solid transparent;
+        }
+        input::-moz-color-swatch {
+          border-radius: 50%;
+          border: 2px solid transparent;
+        }
+      }
+    `,
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

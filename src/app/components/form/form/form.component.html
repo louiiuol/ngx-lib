@@ -1,0 +1,128 @@
+<!-- dynamic-form().component.html -->
+<form [formGroup]="form()" (ngSubmit)="onSubmit()">
+  @for (field of fields(); track field.key) {
+    <!-- Conditionally hide fields -->
+    @if (!field.hidden) {
+      @switch (field.type) {
+        <!-- Input Field -->
+        @case ("input") {
+          <div>
+            <label [for]="field.key">{{ field.label }}</label>
+            <input
+              [type]="field.inputType || 'text'"
+              [id]="field.key"
+              [formControlName]="field.key"
+              [placeholder]="field.placeholder"
+            />
+          </div>
+        }
+
+        <!-- Checkbox Field -->
+        @case ("checkbox") {
+          <div>
+            <label>
+              <input type="checkbox" [formControlName]="field.key" />
+              {{ field.label }}
+            </label>
+          </div>
+        }
+
+        <!-- Select Field -->
+        @case ("select") {
+          <div>
+            <label [for]="field.key">{{ field.label }}</label>
+            <select [id]="field.key" [formControlName]="field.key">
+              @for (option of field.options; track option.value) {
+                <option [value]="option.value">{{ option.label }}</option>
+              }
+            </select>
+          </div>
+        }
+
+        <!-- Radio Field -->
+        @case ("radio") {
+          <div>
+            <label>{{ field.label }}</label>
+            @for (option of field.options; track option.value) {
+              <label>
+                <input
+                  type="radio"
+                  [formControlName]="field.key"
+                  [value]="option.value"
+                />
+                {{ option.label }}
+              </label>
+            }
+          </div>
+        }
+
+        <!-- Textarea Field -->
+        @case ("textarea") {
+          <div>
+            <label [for]="field.key">{{ field.label }}</label>
+            <textarea
+              [id]="field.key"
+              [formControlName]="field.key"
+              [placeholder]="field.placeholder"
+            ></textarea>
+          </div>
+        }
+
+        <!-- Date Field -->
+        @case ("date") {
+          <div>
+            <label [for]="field.key">{{ field.label }}</label>
+            <input
+              type="date"
+              [id]="field.key"
+              [formControlName]="field.key"
+              [placeholder]="field.placeholder"
+            />
+          </div>
+        }
+
+        <!-- Default Case -->
+        @default {
+          <div>
+            <p>Unknown field type: {{ field.type }}</p>
+          </div>
+        }
+      }
+
+      <!-- Validation Errors -->
+      @if (
+        form().get(field.key)?.invalid &&
+        (form().get(field.key)?.touched || form().get(field.key)?.dirty)
+      ) {
+        <div class="error-messages">
+          @if (form().get(field.key)?.hasError("required")) {
+            <span>{{ field.label }} est requis.</span>
+          }
+          @if (form().get(field.key)?.hasError("minlength")) {
+            <span>
+              {{ field.label }} doit avoir au moins
+              {{ form().get(field.key)?.errors?.["minlength"]?.requiredLength }}
+              caractères.
+            </span>
+          }
+          @if (form().get(field.key)?.hasError("maxlength")) {
+            <span>
+              {{ field.label }} ne peut pas dépasser
+              {{ form().get(field.key)?.errors?.["maxlength"]?.requiredLength }}
+              caractères.
+            </span>
+          }
+          <!-- @if (form().get(field.key)?.hasError("pattern")) {
+            <span>{{ getPatternErrorMessage(field.patternName) }}</span>
+          } -->
+          @if (form().get(field.key)?.hasError("email")) {
+            <span>{{ field.label }} doit être une adresse email valide.</span>
+          }
+          <!-- Add more error messages as needed -->
+        </div>
+      }
+    }
+  }
+
+  <button libButton type="submit" [disabled]="form().invalid">Submit</button>
+</form>
