@@ -15,7 +15,7 @@ import { FormComponent } from '../../form.component';
         <h3 class="w-full text-2xl mb-3">Default form</h3>
         <div class="examples-container">
           <div class="examples-list">
-            <lib-form [fields]="fields"> </lib-form>
+            <!-- <lib-form [fields]="fields"> </lib-form> -->
           </div>
         </div>
       </section>

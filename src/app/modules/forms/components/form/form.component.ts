@@ -6,11 +6,12 @@ import {
   input,
 } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { ButtonComponent } from '../../atoms/button/button.component';
+import { ButtonComponent } from '../../../../components/atoms/button/button.component';
+import type { CommonPatternName } from '../../form-patterns.const';
 import {
-  getPattern,
   getPatternDescription,
-} from '../inputs/input/custom-validators'; // Import custom validators
+  getPatternValidators,
+} from '../../form-patterns.const'; // Import custom validators
 import type { FormFieldConfig } from './types/form-field-config.type';
 
 @Component({
@@ -34,7 +35,7 @@ export class FormComponent {
             // Add a pattern validator if a patternName is provided
             if (field.patternName) {
               // Assuming getPattern returns a validator function
-              controlValidators.push(getPattern(field.patternName));
+              controlValidators.push(getPatternValidators(field.patternName));
             }
 
             // Create a new FormControl with initial value, validators, and async validators
@@ -65,7 +66,7 @@ export class FormComponent {
     }
   }
 
-  getPatternErrorMessage(patternName: string): string {
+  getPatternErrorMessage(patternName: CommonPatternName): string {
     return getPatternDescription(patternName) || 'Format invalide';
   }
 }

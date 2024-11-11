@@ -1,5 +1,5 @@
 import type { NgDocPage } from '@ng-doc/core';
-import FormCategory from '../../../ng-doc.category';
+import FormCategory from '../../../../ng-doc.category';
 import { InputDemoComponent } from './demos/input-demo.component';
 
 const Input: NgDocPage = {

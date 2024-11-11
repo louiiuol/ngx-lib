@@ -1,4 +1,5 @@
 import type { AsyncValidatorFn, ValidatorFn } from '@angular/forms';
+import type { CommonPatternName } from '../../../form-patterns.const';
 
 export interface FormFieldConfig {
   key: string; // FormControl name
@@ -10,7 +11,7 @@ export interface FormFieldConfig {
   inputType?: string; // For 'input' fields: 'text', 'password', etc.
   validators?: ValidatorFn[]; // Synchronous validators
   asyncValidators?: AsyncValidatorFn[]; // Asynchronous validators
-  patternName?: string; // For custom pattern validators
+  patternName?: CommonPatternName; // For custom pattern validators
   hidden?: boolean; // For conditionally hiding fields
   initialValue?: string | number | boolean; // Initial value
   // Add more properties as needed

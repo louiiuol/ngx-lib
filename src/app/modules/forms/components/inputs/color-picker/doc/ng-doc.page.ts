@@ -1,5 +1,5 @@
 import type { NgDocPage } from '@ng-doc/core';
-import FormCategory from '../../../ng-doc.category';
+import FormCategory from '../../../../ng-doc.category';
 import { ColorPickerDemoComponent } from './demos/color-picker-demo.component';
 
 const ColorPicker: NgDocPage = {
