@@ -16,15 +16,17 @@ import { InputComponent } from '../../input.component';
       <section>
         <h3 class="w-full text-2xl mb-3">Login example</h3>
         <div class="examples-container">
-          <div class="examples-list w-80">
+          <div class="examples-list w-full px-6">
             <form
               class="flex flex-col gap-3 w-full"
               [formGroup]="form"
               (ngSubmit)="onSubmit()"
             >
-              @for (field of formFields; track field.key) {
-                <lib-input [formControlName]="field.key" [opt]="field" />
-              }
+              <div class="flex flex-wrap gap-3">
+                @for (field of formFields; track field.key) {
+                  <lib-input [formControlName]="field.key" [opt]="field" />
+                }
+              </div>
 
               <button lib-button type="submit" [disabled]="form.invalid">
                 Submit
@@ -54,6 +56,7 @@ export class InputDemoComponent {
       required: true,
       pattern: 'email',
       value: 'yolo@email.com',
+      class: 'flex-1',
     },
     {
       key: 'password',
@@ -61,7 +64,9 @@ export class InputDemoComponent {
       label: 'Password',
       placeholder: '*******',
       required: true,
+      hint: 'Un mot de passe sécurisé vous protège des intrusions.',
       pattern: 'password',
+      class: 'flex-1',
     },
     {
       key: 'url',

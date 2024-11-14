@@ -16,6 +16,7 @@ export interface FormFieldOptions<T = string> {
   maxLength?: number;
   required?: boolean;
   disabled?: boolean;
+  class?: string;
   pattern?:
     | CommonPatternName
     | { name: string; regex: RegExp; description: string };

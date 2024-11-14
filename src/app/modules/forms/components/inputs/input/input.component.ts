@@ -35,20 +35,28 @@ import {
  * ```
  *
  * @see `InputOptions` for the available options.
+ *
+ * @author louiiuol
+ * @version 0.0.1
  */
 @Component({
   selector: 'lib-input',
   standalone: true,
+  host: {
+    class: 'block w-full',
+    '[class]': 'opt().class',
+  },
   template: `
-    <div class="relative w-full mb-4">
+    <div class="relative w-full">
       <label class="block text-gray-700 text-sm font-bold mb-2">
         {{ opt().label }}
         @if (opt().required) {
           <span libTooltip="required">*</span>
         }
       </label>
+
       <div
-        class="flex items-center border rounded px-3 py-2 focus-within:ring-2 focus-within:ring-slate-500/60"
+        class="flex items-center border px-3 py-2 focus-within:ring-2 focus-within:ring-slate-500/60 rounded-lg"
         [class.border-red-500]="
           control.invalid && (control.dirty || control.touched)
         "
@@ -57,6 +65,7 @@ import {
         @if (opt().prefix; as prefix) {
           <span class="mr-2 text-gray-500">{{ prefix }}</span>
         }
+
         <input
           [type]="opt().type"
           [formControl]="control"
@@ -64,28 +73,36 @@ import {
           (blur)="onTouched()"
           class="appearance-none bg-transparent w-full text-gray-700 leading-tight focus:outline-none"
         />
+
         @if (opt().suffix; as suffix) {
           <span class="ml-2 text-gray-500">{{ suffix }}</span>
         }
       </div>
-      @if (opt().hint; as hint) {
-        <p class="text-gray-600 text-xs italic mt-1">
-          {{ hint }}
-        </p>
-      }
-      @if (control.invalid && (control.dirty || control.touched)) {
+      <div class="h-8 py-1">
         @let errorMessage = getErrorMessage();
-        @let maxLength = 120;
-        @let showTooltip = errorMessage.length > maxLength;
 
-        <p
-          [libTooltip]="errorMessage"
-          [tooltipDisabled]="!showTooltip"
-          class="text-red-500 text-xs italic mt-1 cursor-help max-w-prose"
-          [class.cursor-help]="showTooltip"
-          [innerHTML]="errorMessage | truncateText: maxLength"
-        ></p>
-      }
+        @if (
+          opt().hint &&
+          (!errorMessage || (control.pristine && control.untouched))
+        ) {
+          <p class="text-gray-600 text-xs italic mt-1">
+            {{ opt().hint }}
+          </p>
+        }
+
+        @if (control.invalid && (control.dirty || control.touched)) {
+          @let maxLength = 120;
+          @let showTooltip = errorMessage.length > maxLength;
+
+          <p
+            [libTooltip]="errorMessage"
+            [tooltipDisabled]="!showTooltip"
+            class="text-red-500 text-xs italic cursor-help max-w-prose leading-tight"
+            [class.cursor-help]="showTooltip"
+            [innerHTML]="errorMessage | truncateText: maxLength"
+          ></p>
+        }
+      </div>
     </div>
   `,
   providers: [
