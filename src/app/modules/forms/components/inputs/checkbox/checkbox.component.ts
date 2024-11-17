@@ -22,7 +22,7 @@ import type { CheckboxOptions } from '../../../types/form-field-options.type';
  * Simple checkbox component.
  *
  * @author louiiuol
- * @version 0.0.1
+ * @version 0.0.2
  */
 @Component({
   selector: 'lib-checkbox',
@@ -37,13 +37,11 @@ import type { CheckboxOptions } from '../../../types/form-field-options.type';
           [formControl]="control"
           (blur)="onTouched()"
           class="accent-primary-600 rounded cursor-pointer oultine"
-          [class.outline-red-500]="
-            control.invalid && (control.dirty || control.touched)
-          "
-          [class.bg-gray-100]="opt().disabled"
+          [class.bg-gray-200]="opt().disabled"
         />
         <label
           class="ms-2 text-sm font-medium text-gray-900  cursor-pointer"
+          [class.text-gray-300]="opt().disabled"
           [innerHTML]="
             (opt().label ?? opt().key) + (opt().required ? ' *' : '')
           "
