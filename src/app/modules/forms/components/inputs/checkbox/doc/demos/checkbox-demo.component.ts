@@ -2,14 +2,13 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from 'src/app/components/atoms/button/button.component';
 import { FormService } from 'src/app/modules/forms/services/form.service';
-import type { InputOptions } from 'src/app/modules/forms/types/form-field-options.type';
-import { InputComponent } from '../../input.component';
+import { CheckboxComponent } from '../../checkbox.component';
 
 /**
  * @internal
  */
 @Component({
-  selector: 'lib-input-demo',
+  selector: 'lib-checkbox-demo',
   standalone: true,
   template: `
     <div class="ng-demo">
@@ -24,7 +23,7 @@ import { InputComponent } from '../../input.component';
             >
               <div class="flex flex-wrap gap-3">
                 @for (field of formFields; track field.key) {
-                  <lib-input [formControlName]="field.key" [opt]="field" />
+                  <lib-checkbox [formControlName]="field.key" [opt]="field" />
                 }
               </div>
 
@@ -43,39 +42,19 @@ import { InputComponent } from '../../input.component';
       </section>
     </div>
   `,
-  imports: [InputComponent, ReactiveFormsModule, ButtonComponent],
+  imports: [CheckboxComponent, ReactiveFormsModule, ButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InputDemoComponent {
-  protected readonly formFields: InputOptions[] = [
+export class CheckboxDemoComponent {
+  protected formFields = [
     {
-      key: 'email',
-      type: 'email',
-      label: 'Email',
-      placeholder: 'example@mail.com',
+      key: 'agreed',
+      type: 'checkbox',
+      label: 'Agree to <a class="underline text-primary" href="#">terms</a>',
       required: true,
-      pattern: 'email',
-      value: 'yolo@email.com',
-      class: 'flex-1',
+      value: false,
     },
-    {
-      key: 'password',
-      type: 'password',
-      label: 'Password',
-      placeholder: '*******',
-      required: true,
-      hint: 'Un mot de passe sécurisé vous protège des intrusions.',
-      pattern: 'password',
-      class: 'flex-1',
-    },
-    {
-      key: 'url',
-      type: 'url',
-      label: 'Url',
-      placeholder: 'https://example.com',
-      pattern: 'url',
-    },
-  ];
+  ] as const;
 
   protected readonly form = inject(FormService).buildForm(this.formFields);
 

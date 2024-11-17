@@ -1,24 +1,40 @@
+import type { nullish } from 'src/app/types/nullish.type';
+import type { Prettify } from 'src/app/types/prettify.type';
 import type { CommonPatternName } from '../form-patterns.const';
 
 /**
- * TYpe definition for a form field options.
+ * Type definitions for a form field options.
+ * Could be an input or a checkbox.
  */
-export interface FormFieldOptions<T = string> {
+export type FormFieldOptions = InputOptions | CheckboxOptions;
+
+type FormFieldCommonOptions = {
   key: string;
-  type: 'text' | 'password' | 'email' | 'tel' | 'url';
-  value?: T;
-  label?: string;
-  placeholder?: string;
-  hint?: string;
-  suffix?: string;
-  prefix?: string;
-  minLength?: number;
-  maxLength?: number;
-  required?: boolean;
-  disabled?: boolean;
   class?: string;
-  pattern?:
-    | CommonPatternName
-    | { name: string; regex: RegExp; description: string };
-  [key: string]: unknown;
-}
+  disabled?: boolean;
+  hint?: string;
+  label?: string;
+  required?: boolean;
+};
+
+export type InputOptions = Prettify<
+  FormFieldCommonOptions & {
+    type: 'text' | 'password' | 'email' | 'tel' | 'url';
+    value?: string | nullish;
+    placeholder?: string;
+    suffix?: string;
+    prefix?: string;
+    minLength?: number;
+    maxLength?: number;
+    pattern?:
+      | CommonPatternName
+      | { name: string; regex: RegExp; description: string };
+  }
+>;
+
+export type CheckboxOptions = Prettify<
+  FormFieldCommonOptions & {
+    type: 'checkbox';
+    value?: boolean | nullish;
+  }
+>;

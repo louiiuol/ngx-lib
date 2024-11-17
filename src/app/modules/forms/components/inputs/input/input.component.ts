@@ -15,7 +15,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { TooltipDirective } from 'src/app/directives/tooltip/tooltip.directive';
-import type { FormFieldOptions } from 'src/app/modules/forms/types/form-field-options.type';
+import type { InputOptions } from 'src/app/modules/forms/types/form-field-options.type';
 import { TruncateTextPipe } from 'src/app/pipes/truncate-text/truncate-text.pipe';
 import type { nullish } from 'src/app/types/nullish.type';
 import {
@@ -42,13 +42,13 @@ import {
 @Component({
   selector: 'lib-input',
   standalone: true,
-  host: {
-    class: 'block w-full',
-    '[class]': 'opt().class',
-  },
+  host: { class: 'block w-full', '[class]': 'opt().class' },
   template: `
     <div class="relative w-full">
-      <label class="block text-gray-700 text-sm font-bold mb-2">
+      <label
+        [for]="'input-' + uuid"
+        class="block text-gray-700 text-sm font-bold mb-2"
+      >
         {{ opt().label }}
         @if (opt().required) {
           <span libTooltip="required">*</span>
@@ -67,6 +67,7 @@ import {
         }
 
         <input
+          [id]="'input-' + uuid"
           [type]="opt().type"
           [formControl]="control"
           [placeholder]="opt().placeholder"
@@ -121,8 +122,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent implements ControlValueAccessor {
-  opt = input.required<FormFieldOptions>();
+  opt = input.required<InputOptions>();
 
+  protected readonly uuid = Math.random().toString(36).substring(2);
   protected patternDescription = computed<string | nullish>(() => {
     const pattern = this.opt().pattern;
     return typeof pattern === 'string'
